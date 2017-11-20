@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# generate documentation
+doxygen cs110graphicsdocumentation
+
+# make sure that html is public
+chmod a+rx ./html
+
+# make sure that all files in html are public
+chmod a+r ./html/*
+
+# make sure that search is public
+chmod a+rx ./html/search
