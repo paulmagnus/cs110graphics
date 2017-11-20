@@ -34,6 +34,23 @@ import inspect
 from PIL import Image as image  # for Image class
 from PIL import ImageTk as itk  # for Image class
 
+# If this exception is thrown, something is wrong with the graphics
+# package.
+class CS110Exception(Exception):
+    def __init__(self, value):
+        self.parameter = value
+
+    def __str__(self):
+        return "Error: " + repr(self.parameter) + "\n" + \
+            "This is a bug in the cs110graphics system."
+
+def _check_type(param, param_name, target_type):
+    if not isinstance(param, target_type):
+        raise TypeError("The parameter '" + param_name + "' should be an " +
+                        str(type(target_type).__name__) +
+                        " but instead was a " +
+                        str(type(param).__name__))
+
 ## @file cs110graphics.py
 # The main cs110graphics file
 
@@ -61,20 +78,27 @@ class Window:
     def __init__(self, width, height, background, name, first_function=None,
                  master=None):
         # type checking
-        assert isinstance(width, int) and isinstance(height, int) and \
-            isinstance(background, str) and isinstance(name, str), \
-            "Make sure width is an int, height is an int, background is a " + \
-            "string, and name is a string."
+        _check_type(width, "width", int)
+        _check_type(height, "height", int)
+        _check_type(background, "background" str)
+        _check_type(name, "name", str)
+        if not ((first_function is None) or callable(first_function)):
+            raise TypeError("The parameter 'first_function' should be a " +
+                            "function but instead was a " +
+                            str(type(first_function).__name__))
+        
         # saving the given variables
         self._width = width
         self._height = height
         self._background = background
         self._name = name
         self._first_function = first_function
+
         # self._graphics contains a running tally of what objects are on the
         # canvas
         # [0] = depth, [1] = tag, [2] = object ID
         self._graphics = []
+
         # initalizing a frame and canvas using tkinter
         self._root = Tk()
         self._frame = Frame(master)
@@ -82,39 +106,36 @@ class Window:
         self._canvas = Canvas(self._frame)
         self._canvas.pack()
         self._canvas.focus_set()
+
         # using our built in functions to set height, width, and background
         self.set_height(height)
         self.set_width(width)
         self.set_title(name)
         self.set_background(background)
-        # running first function
-        self._first_function(self)
+
+        if not first_function is None:
+            # running first function
+            self._first_function(self)
 
     ## Adds an object to the Window.
     # @param graphic - GraphicalObject
     def add(self, graphic):
         # type checking
-        assert isinstance(graphic, GraphicalObject), \
-            "Make sure graphic is a GraphicalObject."
+        _check_type(graphic, "graphic", GraphicalObject)
+
         # deferring to each object since each object requires a different
         # method of construction
         graphic._add_to()
 
-    ## Removes an object from the Window object, assuming
-    # the object being deleted exists.
+    ## Removes an object from the Window.
     # @param graphic - GraphicalObject
     def remove(self, graphic):
-        # type checking and making sure the object is in the list
-        assert isinstance(graphic, GraphicalObject) and \
-            [graphic._depth, graphic._tag, graphic] in self._graphics, \
-            "Make sure graphic is a GraphicalObject and the graphic has " + \
-            "been added to the board."
-        # removes from the window, then the list, then sets the tag to None and
-        # disables the object (for readding later)
-        graphic._remove_from(self)
-        self._graphics.remove([graphic._depth, graphic._tag, graphic])
-        graphic._tag = None
-        graphic._enabled = False
+        # type checking
+        _check_type(graphic, "graphic", GraphicalObject)
+
+        if [graphic._depth, graphic._tag, graphic] in self._graphics:
+            # only remove if the object is on the window
+            graphic._remove()
 
     ## Returns the height of the window as an integer.
     # @return height - int
@@ -131,8 +152,8 @@ class Window:
     # name of a color ("yellow"), or a hex code ("#FFFF00")
     def set_background(self, background):
         # type checking
-        assert isinstance(background, str), \
-            "Make sure the background color is a string."
+        _check_type(background, "background", str)
+        
         self._background = background
         self._canvas.configure(bg=background)
 
@@ -140,8 +161,8 @@ class Window:
     # @param height - int
     def set_height(self, height):
         # type checking
-        assert isinstance(height, int), \
-            "Make sure the height is an int."
+        _check_type(height, "height", int)
+
         self._height = height
         self._canvas.configure(height=height)
 
@@ -149,8 +170,8 @@ class Window:
     # @param name - string
     def set_title(self, name):
         # type checking
-        assert isinstance(name, str), \
-            "Make sure the window title is a string."
+        _check_type(name, "name", str)
+
         self._name = name
         self._root.title(name)
 
@@ -158,8 +179,8 @@ class Window:
     # @param width - height
     def set_width(self, width):
         # type checking
-        assert isinstance(width, int), \
-            "Make sure the width is an int."
+        _check_type(width, "width", int)
+
         self._width = width
         self._canvas.configure(width=width)
 
@@ -167,6 +188,15 @@ class Window:
     # overwritten. This function goes into self._graphics and replaces the old
     # tag with a newer one, as well as replacing its depth with a newer one.
     def _update_tag(self, graphic):
+        try:
+            _check_type(graphic, "graphic", GraphicalObject)
+        except TypeError, (instance):
+            raise CS110Exception(str(instance))
+
+        #-------------------------------------------
+        # TRY USING ALIASING HERE FOR self._graphics
+        #-------------------------------------------
+        
         # goes through every item in self._graphics, then saves the object's
         # tag and depth if it's found
         for item in self._graphics:
