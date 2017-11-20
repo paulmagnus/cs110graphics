@@ -1,0 +1,119 @@
+\hypertarget{classbroken__cs110graphics_1_1Image}{
+\section{broken\_\-cs110graphics.Image Class Reference}
+\label{classbroken__cs110graphics_1_1Image}\index{broken\_\-cs110graphics::Image@{broken\_\-cs110graphics::Image}}
+}
+
+
+An image, which can be added to a \hyperlink{classbroken__cs110graphics_1_1Window}{Window} object.  
+Inheritance diagram for broken\_\-cs110graphics.Image::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classbroken__cs110graphics_1_1Image}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbroken__cs110graphics_1_1Image_aa8de88ab79fc10411c764a11e8572a09}{\_\-\_\-init\_\-\_\-}
+\item 
+def \hyperlink{classbroken__cs110graphics_1_1Image_a3f251e1a4abf1d9bd47034ca1f2108da}{move}
+\begin{DoxyCompactList}\small\item\em Moves a graphical object dx pixels horizontally and dy pixels vertically. \item\end{DoxyCompactList}\item 
+def \hyperlink{classbroken__cs110graphics_1_1Image_a4070f6da8af60ef25ed9e0f8791cf920}{move\_\-to}
+\begin{DoxyCompactList}\small\item\em Moves a graphical object to a point. \item\end{DoxyCompactList}\item 
+def \hyperlink{classbroken__cs110graphics_1_1Image_a091c652307991279c974552524684894}{resize}
+\begin{DoxyCompactList}\small\item\em Resizes the \hyperlink{classbroken__cs110graphics_1_1Image}{Image}. \item\end{DoxyCompactList}\item 
+def \hyperlink{classbroken__cs110graphics_1_1Image_a9b5140ffcf53916d30e69a91c1e891ed}{rotate}
+\begin{DoxyCompactList}\small\item\em Rotates an object. \item\end{DoxyCompactList}\item 
+def \hyperlink{classbroken__cs110graphics_1_1Image_a7c200c523a71bb307a215b3551ec1d0f}{scale}
+\begin{DoxyCompactList}\small\item\em Scales the image according to the factor. \item\end{DoxyCompactList}\item 
+def \hyperlink{classbroken__cs110graphics_1_1Image_a16199f1f2ff5405b71a1ec0246534bca}{size}
+\begin{DoxyCompactList}\small\item\em Returns a tuple of the width and height of the image. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An image, which can be added to a \hyperlink{classbroken__cs110graphics_1_1Window}{Window} object. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classbroken__cs110graphics_1_1Image_aa8de88ab79fc10411c764a11e8572a09}{
+\index{broken\_\-cs110graphics::Image@{broken\_\-cs110graphics::Image}!\_\-\_\-init\_\-\_\-@{\_\-\_\-init\_\-\_\-}}
+\index{\_\-\_\-init\_\-\_\-@{\_\-\_\-init\_\-\_\-}!broken_cs110graphics::Image@{broken\_\-cs110graphics::Image}}
+\subsubsection[{\_\-\_\-init\_\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Image.\_\-\_\-init\_\-\_\- ( {\em self}, \/   {\em window}, \/   {\em image\_\-loc}, \/   {\em width} = {\ttfamily 100}, \/   {\em height} = {\ttfamily 100}, \/   {\em center} = {\ttfamily (200,~200})}}
+\label{classbroken__cs110graphics_1_1Image_aa8de88ab79fc10411c764a11e8572a09}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em window}]-\/ \hyperlink{classbroken__cs110graphics_1_1Window}{Window} -\/ the window which the object will be added to \item[{\em image\_\-loc}]-\/ str-\/ The file location for an image, see below for instructions regarding file locations \item[{\em width}]-\/ int -\/ {\bfseries (default: 100)} the width of the image \item[{\em height}]-\/ int -\/ {\bfseries (default: 100)} the height of the image \item[{\em center}]-\/ tuple of (int $\ast$ int) -\/ {\bfseries (default: (200, 200))} the center location for the image\end{DoxyParams}
+File locations:
+\begin{DoxyItemize}
+\item If a file is in the same folder/directory as the program, just use the name of the file
+\item Otherwise use a file path: eg. \char`\"{}$\sim$/110/bots/images/bot.jpg\char`\"{} or \char`\"{}./images/bot.jpg\char`\"{}
+\end{DoxyItemize}
+
+Note that \char`\"{}.\char`\"{} represents the current directory and \char`\"{}..\char`\"{} represents the parent directory. \hypertarget{classbroken__cs110graphics_1_1Image_a3f251e1a4abf1d9bd47034ca1f2108da}{
+\index{broken\_\-cs110graphics::Image@{broken\_\-cs110graphics::Image}!move@{move}}
+\index{move@{move}!broken_cs110graphics::Image@{broken\_\-cs110graphics::Image}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Image.move ( {\em self}, \/   {\em dx}, \/   {\em dy})}}
+\label{classbroken__cs110graphics_1_1Image_a3f251e1a4abf1d9bd47034ca1f2108da}
+
+
+Moves a graphical object dx pixels horizontally and dy pixels vertically. 
+\begin{DoxyParams}{Parameters}
+\item[{\em dx}]-\/ int \item[{\em dy}]-\/ int \end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbroken__cs110graphics_1_1GraphicalObject_aebbdd098df38319fa08db41caad93282}{broken\_\-cs110graphics.GraphicalObject}.\hypertarget{classbroken__cs110graphics_1_1Image_a4070f6da8af60ef25ed9e0f8791cf920}{
+\index{broken\_\-cs110graphics::Image@{broken\_\-cs110graphics::Image}!move\_\-to@{move\_\-to}}
+\index{move\_\-to@{move\_\-to}!broken_cs110graphics::Image@{broken\_\-cs110graphics::Image}}
+\subsubsection[{move\_\-to}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Image.move\_\-to ( {\em self}, \/   {\em point})}}
+\label{classbroken__cs110graphics_1_1Image_a4070f6da8af60ef25ed9e0f8791cf920}
+
+
+Moves a graphical object to a point. 
+\begin{DoxyParams}{Parameters}
+\item[{\em point}]-\/ tuple of (int $\ast$ int) \end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classbroken__cs110graphics_1_1GraphicalObject_ad41f02c6b8a874f21ca63bcb6a0320c5}{broken\_\-cs110graphics.GraphicalObject}.\hypertarget{classbroken__cs110graphics_1_1Image_a091c652307991279c974552524684894}{
+\index{broken\_\-cs110graphics::Image@{broken\_\-cs110graphics::Image}!resize@{resize}}
+\index{resize@{resize}!broken_cs110graphics::Image@{broken\_\-cs110graphics::Image}}
+\subsubsection[{resize}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Image.resize ( {\em self}, \/   {\em width}, \/   {\em height})}}
+\label{classbroken__cs110graphics_1_1Image_a091c652307991279c974552524684894}
+
+
+Resizes the \hyperlink{classbroken__cs110graphics_1_1Image}{Image}. 
+\begin{DoxyParams}{Parameters}
+\item[{\em width}]-\/ int \item[{\em height}]-\/ int \end{DoxyParams}
+\hypertarget{classbroken__cs110graphics_1_1Image_a9b5140ffcf53916d30e69a91c1e891ed}{
+\index{broken\_\-cs110graphics::Image@{broken\_\-cs110graphics::Image}!rotate@{rotate}}
+\index{rotate@{rotate}!broken_cs110graphics::Image@{broken\_\-cs110graphics::Image}}
+\subsubsection[{rotate}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Image.rotate ( {\em self}, \/   {\em degrees})}}
+\label{classbroken__cs110graphics_1_1Image_a9b5140ffcf53916d30e69a91c1e891ed}
+
+
+Rotates an object. 
+\begin{DoxyParams}{Parameters}
+\item[{\em degrees}]-\/ int \end{DoxyParams}
+\hypertarget{classbroken__cs110graphics_1_1Image_a7c200c523a71bb307a215b3551ec1d0f}{
+\index{broken\_\-cs110graphics::Image@{broken\_\-cs110graphics::Image}!scale@{scale}}
+\index{scale@{scale}!broken_cs110graphics::Image@{broken\_\-cs110graphics::Image}}
+\subsubsection[{scale}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Image.scale ( {\em self}, \/   {\em factor})}}
+\label{classbroken__cs110graphics_1_1Image_a7c200c523a71bb307a215b3551ec1d0f}
+
+
+Scales the image according to the factor. 
+\begin{DoxyParams}{Parameters}
+\item[{\em factor}]-\/ float \end{DoxyParams}
+\hypertarget{classbroken__cs110graphics_1_1Image_a16199f1f2ff5405b71a1ec0246534bca}{
+\index{broken\_\-cs110graphics::Image@{broken\_\-cs110graphics::Image}!size@{size}}
+\index{size@{size}!broken_cs110graphics::Image@{broken\_\-cs110graphics::Image}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Image.size ( {\em self})}}
+\label{classbroken__cs110graphics_1_1Image_a16199f1f2ff5405b71a1ec0246534bca}
+
+
+Returns a tuple of the width and height of the image. \begin{DoxyReturn}{Returns}
+size -\/ tuple of (int $\ast$ int) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+broken\_\-cs110graphics.py\end{DoxyCompactItemize}

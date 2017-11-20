@@ -68,8 +68,6 @@ Inheritance diagram for cs110graphics.Fillable:</div>
 <p><a href="classcs110graphics_1_1Fillable-members.html">List of all members.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a91e490828e9b9f0c3545af7fabf7a0b0"></a><!-- doxytag: member="cs110graphics::Fillable::__init__" ref="a91e490828e9b9f0c3545af7fabf7a0b0" args="" -->
-def&nbsp;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a6772d56158c9fe98a33f01d47cb8aa41">get_border_color</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the border color.  <a href="#a6772d56158c9fe98a33f01d47cb8aa41"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a6ed7a4288e84a090ec185c8bdff21d0f">get_border_width</a></td></tr>
@@ -94,6 +92,14 @@ def&nbsp;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the fill color.  <a href="#a4f24c7186c8d057e42a0209eb1d56be7"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a2a6066d1a11c0854ff5ee85e7d9ceb54">set_pivot</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the pivot point.  <a href="#a2a6066d1a11c0854ff5ee85e7d9ceb54"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#adb1af0d5a6baae3f9a08d21a3227c49f">add_handler</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a handler to the graphical object.  <a href="#adb1af0d5a6baae3f9a08d21a3227c49f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#a062789c4cc9de38af32dcc4ff2058607">get_center</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the center of the object.  <a href="#a062789c4cc9de38af32dcc4ff2058607"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#a6d9f5718cd0cf249e0d2842971bae17f">get_depth</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the depth of the object.  <a href="#a6d9f5718cd0cf249e0d2842971bae17f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#a20d76d4ee4419c3065d61deb6cbc6700">set_depth</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the depth of the <a class="el" href="classcs110graphics_1_1GraphicalObject.html" title="This is a parent class of any object which can be put into Window.">GraphicalObject</a>.  <a href="#a20d76d4ee4419c3065d61deb6cbc6700"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>This is a parent class of any object which can have its colors modified. </p>
@@ -106,6 +112,41 @@ def&nbsp;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 <li>pivot = center </li>
 </ul>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="adb1af0d5a6baae3f9a08d21a3227c49f"></a><!-- doxytag: member="cs110graphics::Fillable::add_handler" ref="adb1af0d5a6baae3f9a08d21a3227c49f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cs110graphics.GraphicalObject.add_handler </td>
+          <td>(</td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>handler_object</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Adds a handler to the graphical object. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>handler_object</em>&nbsp;</td><td>- <a class="el" href="classcs110graphics_1_1EventHandler.html" title="The EventHandler class should be extended by any class that reacts to user input...">EventHandler</a> - the object that handles the events for this <a class="el" href="classcs110graphics_1_1GraphicalObject.html" title="This is a parent class of any object which can be put into Window.">GraphicalObject</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a6772d56158c9fe98a33f01d47cb8aa41"></a><!-- doxytag: member="cs110graphics::Fillable::get_border_color" ref="a6772d56158c9fe98a33f01d47cb8aa41" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -145,6 +186,48 @@ def&nbsp;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 
 <p>Returns the border width. </p>
 <dl class="return"><dt><b>Returns:</b></dt><dd>border_width - int </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a062789c4cc9de38af32dcc4ff2058607"></a><!-- doxytag: member="cs110graphics::Fillable::get_center" ref="a062789c4cc9de38af32dcc4ff2058607" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cs110graphics.GraphicalObject.get_center </td>
+          <td>(</td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>self</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns the center of the object. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>center - tuple </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6d9f5718cd0cf249e0d2842971bae17f"></a><!-- doxytag: member="cs110graphics::Fillable::get_depth" ref="a6d9f5718cd0cf249e0d2842971bae17f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cs110graphics.GraphicalObject.get_depth </td>
+          <td>(</td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>self</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns the depth of the object. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>depth - int </dd></dl>
 
 </div>
 </div>
@@ -405,6 +488,41 @@ def&nbsp;</td><td class="memItemRight" valign="bottom"><b>__init__</b></td></tr>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>width</em>&nbsp;</td><td>- int </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a20d76d4ee4419c3065d61deb6cbc6700"></a><!-- doxytag: member="cs110graphics::Fillable::set_depth" ref="a20d76d4ee4419c3065d61deb6cbc6700" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cs110graphics.GraphicalObject.set_depth </td>
+          <td>(</td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>depth</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Sets the depth of the <a class="el" href="classcs110graphics_1_1GraphicalObject.html" title="This is a parent class of any object which can be put into Window.">GraphicalObject</a>. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>depth</em>&nbsp;</td><td>- int </td></tr>
   </table>
   </dd>
 </dl>

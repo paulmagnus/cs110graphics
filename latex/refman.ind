@@ -1,0 +1,193 @@
+\begin{theindex}
+
+  \item {add}
+    \subitem {cs110graphics::Window}, \hyperpage{32}
+  \item {add\_\-handler}
+    \subitem {cs110graphics::GraphicalObject}, \hyperpage{20}
+
+  \indexspace
+
+  \item {cs110graphics}, \hyperpage{7}
+    \subitem {RunWithYieldDelay}, \hyperpage{8}
+    \subitem {StartGraphicsSystem}, \hyperpage{8}
+  \item {cs110graphics::\_\-RunWithYieldDelay}, \hyperpage{11}
+  \item {cs110graphics::Circle}, \hyperpage{12}
+    \subitem {set\_\-radius}, \hyperpage{12}
+  \item {cs110graphics::Event}, \hyperpage{13}
+    \subitem {get\_\-button}, \hyperpage{13}
+    \subitem {get\_\-description}, \hyperpage{13}
+    \subitem {get\_\-key}, \hyperpage{13}
+    \subitem {get\_\-mouse\_\-location}, \hyperpage{13}
+    \subitem {get\_\-root\_\-mouse\_\-location}, \hyperpage{14}
+  \item {cs110graphics::EventHandler}, \hyperpage{15}
+    \subitem {handke\_\-key\_\-release}, \hyperpage{15}
+    \subitem {handle\_\-key\_\-press}, \hyperpage{15}
+    \subitem {handle\_\-mouse\_\-enter}, \hyperpage{15}
+    \subitem {handle\_\-mouse\_\-leave}, \hyperpage{16}
+    \subitem {handle\_\-mouse\_\-move}, \hyperpage{16}
+    \subitem {handle\_\-mouse\_\-press}, \hyperpage{16}
+    \subitem {handle\_\-mouse\_\-release}, \hyperpage{16}
+  \item {cs110graphics::Fillable}, \hyperpage{17}
+    \subitem {get\_\-border\_\-color}, \hyperpage{18}
+    \subitem {get\_\-border\_\-width}, \hyperpage{18}
+    \subitem {get\_\-fill\_\-color}, \hyperpage{18}
+    \subitem {get\_\-pivot}, \hyperpage{18}
+    \subitem {rotate}, \hyperpage{18}
+    \subitem {scale}, \hyperpage{18}
+    \subitem {set\_\-border\_\-color}, \hyperpage{18}
+    \subitem {set\_\-border\_\-width}, \hyperpage{18}
+    \subitem {set\_\-fill\_\-color}, \hyperpage{18}
+    \subitem {set\_\-pivot}, \hyperpage{18}
+  \item {cs110graphics::GraphicalObject}, \hyperpage{20}
+    \subitem {add\_\-handler}, \hyperpage{20}
+    \subitem {get\_\-center}, \hyperpage{20}
+    \subitem {get\_\-depth}, \hyperpage{21}
+    \subitem {move}, \hyperpage{21}
+    \subitem {move\_\-to}, \hyperpage{21}
+    \subitem {set\_\-depth}, \hyperpage{21}
+  \item {cs110graphics::Image}, \hyperpage{22}
+    \subitem {move}, \hyperpage{23}
+    \subitem {move\_\-to}, \hyperpage{23}
+    \subitem {resize}, \hyperpage{23}
+    \subitem {rotate}, \hyperpage{23}
+    \subitem {scale}, \hyperpage{23}
+    \subitem {size}, \hyperpage{23}
+  \item {cs110graphics::Oval}, \hyperpage{24}
+    \subitem {set\_\-radii}, \hyperpage{24}
+  \item {cs110graphics::Polygon}, \hyperpage{25}
+  \item {cs110graphics::Rectangle}, \hyperpage{26}
+    \subitem {set\_\-side\_\-lengths}, \hyperpage{26}
+  \item {cs110graphics::Square}, \hyperpage{27}
+    \subitem {set\_\-side\_\-length}, \hyperpage{27}
+  \item {cs110graphics::Text}, \hyperpage{28}
+    \subitem {move}, \hyperpage{28}
+    \subitem {move\_\-to}, \hyperpage{28}
+    \subitem {set\_\-size}, \hyperpage{29}
+    \subitem {set\_\-text}, \hyperpage{29}
+  \item {cs110graphics::Timer}, \hyperpage{30}
+    \subitem {set\_\-function}, \hyperpage{30}
+    \subitem {set\_\-interval}, \hyperpage{30}
+    \subitem {start}, \hyperpage{30}
+    \subitem {stop}, \hyperpage{30}
+  \item {cs110graphics::Window}, \hyperpage{32}
+    \subitem {add}, \hyperpage{32}
+    \subitem {remove}, \hyperpage{32}
+    \subitem {set\_\-background}, \hyperpage{33}
+    \subitem {set\_\-height}, \hyperpage{33}
+    \subitem {set\_\-title}, \hyperpage{33}
+    \subitem {set\_\-width}, \hyperpage{33}
+
+  \indexspace
+
+  \item {get\_\-border\_\-color}
+    \subitem {cs110graphics::Fillable}, \hyperpage{18}
+  \item {get\_\-border\_\-width}
+    \subitem {cs110graphics::Fillable}, \hyperpage{18}
+  \item {get\_\-button}
+    \subitem {cs110graphics::Event}, \hyperpage{13}
+  \item {get\_\-center}
+    \subitem {cs110graphics::GraphicalObject}, \hyperpage{20}
+  \item {get\_\-depth}
+    \subitem {cs110graphics::GraphicalObject}, \hyperpage{21}
+  \item {get\_\-description}
+    \subitem {cs110graphics::Event}, \hyperpage{13}
+  \item {get\_\-fill\_\-color}
+    \subitem {cs110graphics::Fillable}, \hyperpage{18}
+  \item {get\_\-key}
+    \subitem {cs110graphics::Event}, \hyperpage{13}
+  \item {get\_\-mouse\_\-location}
+    \subitem {cs110graphics::Event}, \hyperpage{13}
+  \item {get\_\-pivot}
+    \subitem {cs110graphics::Fillable}, \hyperpage{18}
+  \item {get\_\-root\_\-mouse\_\-location}
+    \subitem {cs110graphics::Event}, \hyperpage{14}
+
+  \indexspace
+
+  \item {handke\_\-key\_\-release}
+    \subitem {cs110graphics::EventHandler}, \hyperpage{15}
+  \item {handle\_\-key\_\-press}
+    \subitem {cs110graphics::EventHandler}, \hyperpage{15}
+  \item {handle\_\-mouse\_\-enter}
+    \subitem {cs110graphics::EventHandler}, \hyperpage{15}
+  \item {handle\_\-mouse\_\-leave}
+    \subitem {cs110graphics::EventHandler}, \hyperpage{16}
+  \item {handle\_\-mouse\_\-move}
+    \subitem {cs110graphics::EventHandler}, \hyperpage{16}
+  \item {handle\_\-mouse\_\-press}
+    \subitem {cs110graphics::EventHandler}, \hyperpage{16}
+  \item {handle\_\-mouse\_\-release}
+    \subitem {cs110graphics::EventHandler}, \hyperpage{16}
+
+  \indexspace
+
+  \item {move}
+    \subitem {cs110graphics::GraphicalObject}, \hyperpage{21}
+    \subitem {cs110graphics::Image}, \hyperpage{23}
+    \subitem {cs110graphics::Text}, \hyperpage{28}
+  \item {move\_\-to}
+    \subitem {cs110graphics::GraphicalObject}, \hyperpage{21}
+    \subitem {cs110graphics::Image}, \hyperpage{23}
+    \subitem {cs110graphics::Text}, \hyperpage{28}
+
+  \indexspace
+
+  \item {remove}
+    \subitem {cs110graphics::Window}, \hyperpage{32}
+  \item {resize}
+    \subitem {cs110graphics::Image}, \hyperpage{23}
+  \item {rotate}
+    \subitem {cs110graphics::Fillable}, \hyperpage{18}
+    \subitem {cs110graphics::Image}, \hyperpage{23}
+  \item {RunWithYieldDelay}
+    \subitem {cs110graphics}, \hyperpage{8}
+
+  \indexspace
+
+  \item {scale}
+    \subitem {cs110graphics::Fillable}, \hyperpage{18}
+    \subitem {cs110graphics::Image}, \hyperpage{23}
+  \item {set\_\-background}
+    \subitem {cs110graphics::Window}, \hyperpage{33}
+  \item {set\_\-border\_\-color}
+    \subitem {cs110graphics::Fillable}, \hyperpage{18}
+  \item {set\_\-border\_\-width}
+    \subitem {cs110graphics::Fillable}, \hyperpage{18}
+  \item {set\_\-depth}
+    \subitem {cs110graphics::GraphicalObject}, \hyperpage{21}
+  \item {set\_\-fill\_\-color}
+    \subitem {cs110graphics::Fillable}, \hyperpage{18}
+  \item {set\_\-function}
+    \subitem {cs110graphics::Timer}, \hyperpage{30}
+  \item {set\_\-height}
+    \subitem {cs110graphics::Window}, \hyperpage{33}
+  \item {set\_\-interval}
+    \subitem {cs110graphics::Timer}, \hyperpage{30}
+  \item {set\_\-pivot}
+    \subitem {cs110graphics::Fillable}, \hyperpage{18}
+  \item {set\_\-radii}
+    \subitem {cs110graphics::Oval}, \hyperpage{24}
+  \item {set\_\-radius}
+    \subitem {cs110graphics::Circle}, \hyperpage{12}
+  \item {set\_\-side\_\-length}
+    \subitem {cs110graphics::Square}, \hyperpage{27}
+  \item {set\_\-side\_\-lengths}
+    \subitem {cs110graphics::Rectangle}, \hyperpage{26}
+  \item {set\_\-size}
+    \subitem {cs110graphics::Text}, \hyperpage{29}
+  \item {set\_\-text}
+    \subitem {cs110graphics::Text}, \hyperpage{29}
+  \item {set\_\-title}
+    \subitem {cs110graphics::Window}, \hyperpage{33}
+  \item {set\_\-width}
+    \subitem {cs110graphics::Window}, \hyperpage{33}
+  \item {size}
+    \subitem {cs110graphics::Image}, \hyperpage{23}
+  \item {start}
+    \subitem {cs110graphics::Timer}, \hyperpage{30}
+  \item {StartGraphicsSystem}
+    \subitem {cs110graphics}, \hyperpage{8}
+  \item {stop}
+    \subitem {cs110graphics::Timer}, \hyperpage{30}
+
+\end{theindex}

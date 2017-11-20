@@ -1,0 +1,85 @@
+\hypertarget{namespacecs110graphics}{
+\section{Package cs110graphics}
+\label{namespacecs110graphics}\index{cs110graphics@{cs110graphics}}
+}
+
+
+Contains a CSPy-\/friendly version of a Tkinter based graphics library.  
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcs110graphics_1_1Window}{Window}
+\begin{DoxyCompactList}\small\item\em This window acts as a canvas which other objects can be put onto. \item\end{DoxyCompactList}\item 
+class \hyperlink{classcs110graphics_1_1Event}{Event}
+\begin{DoxyCompactList}\small\item\em An event which gets bound to an object. \item\end{DoxyCompactList}\item 
+class \hyperlink{classcs110graphics_1_1EventHandler}{EventHandler}
+\begin{DoxyCompactList}\small\item\em Handles an event. \item\end{DoxyCompactList}\item 
+class \hyperlink{classcs110graphics_1_1GraphicalObject}{GraphicalObject}
+\begin{DoxyCompactList}\small\item\em This window is a parent class of any object which can be put into \hyperlink{classcs110graphics_1_1Window}{Window}. \item\end{DoxyCompactList}\item 
+class \hyperlink{classcs110graphics_1_1Fillable}{Fillable}
+\begin{DoxyCompactList}\small\item\em This window is a parent class of any object which can have its colors modified. \item\end{DoxyCompactList}\item 
+class \hyperlink{classcs110graphics_1_1Image}{Image}
+\begin{DoxyCompactList}\small\item\em An image, which can be added to a \hyperlink{classcs110graphics_1_1Window}{Window} object. \item\end{DoxyCompactList}\item 
+class \hyperlink{classcs110graphics_1_1Text}{Text}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classcs110graphics_1_1Text}{Text} which can be added to a \hyperlink{classcs110graphics_1_1Window}{Window} object. \item\end{DoxyCompactList}\item 
+class \hyperlink{classcs110graphics_1_1Polygon}{Polygon}
+\begin{DoxyCompactList}\small\item\em A \hyperlink{classcs110graphics_1_1Polygon}{Polygon}, which can be added to a \hyperlink{classcs110graphics_1_1Window}{Window} object. \item\end{DoxyCompactList}\item 
+class \hyperlink{classcs110graphics_1_1Circle}{Circle}
+\begin{DoxyCompactList}\small\item\em A circle, which can be added to a \hyperlink{classcs110graphics_1_1Window}{Window} object. \item\end{DoxyCompactList}\item 
+class \hyperlink{classcs110graphics_1_1Oval}{Oval}
+\begin{DoxyCompactList}\small\item\em An oval, which can be added to a \hyperlink{classcs110graphics_1_1Window}{Window} object. \item\end{DoxyCompactList}\item 
+class \hyperlink{classcs110graphics_1_1Square}{Square}
+\begin{DoxyCompactList}\small\item\em A square, which can be added to a \hyperlink{classcs110graphics_1_1Window}{Window} object. \item\end{DoxyCompactList}\item 
+class \hyperlink{classcs110graphics_1_1Rectangle}{Rectangle}
+\begin{DoxyCompactList}\small\item\em A rectangle, which can be added to a \hyperlink{classcs110graphics_1_1Window}{Window} object. \item\end{DoxyCompactList}\item 
+class \hyperlink{classcs110graphics_1_1Timer}{Timer}
+\begin{DoxyCompactList}\small\item\em A class which continually runs a function after a delay. \item\end{DoxyCompactList}\item 
+class \hyperlink{classcs110graphics_1_1__RunWithYieldDelay}{\_\-RunWithYieldDelay}
+\begin{DoxyCompactList}\small\item\em A class which uses a function which returns a generator to rerun until the generator stops generating numbers. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecs110graphics_af1a7cabc9d0dea87259e97ad88ef85ac}{StartGraphicsSystem}
+\begin{DoxyCompactList}\small\item\em This initalizes the graphics system. \item\end{DoxyCompactList}\item 
+def \hyperlink{namespacecs110graphics_a0715c42bb0e296007b96bd0a20903d16}{RunWithYieldDelay}
+\begin{DoxyCompactList}\small\item\em A wrapper for the \hyperlink{classcs110graphics_1_1__RunWithYieldDelay}{\_\-RunWithYieldDelay} class. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains a CSPy-\/friendly version of a Tkinter based graphics library. Paul Magnus '18, Ines Ayara '20, Matthew R. Jenkins '20
+
+Summer 2017 
+
+\subsection{Function Documentation}
+\hypertarget{namespacecs110graphics_a0715c42bb0e296007b96bd0a20903d16}{
+\index{cs110graphics@{cs110graphics}!RunWithYieldDelay@{RunWithYieldDelay}}
+\index{RunWithYieldDelay@{RunWithYieldDelay}!cs110graphics@{cs110graphics}}
+\subsubsection[{RunWithYieldDelay}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.RunWithYieldDelay ( {\em window}, \/   {\em func})}}
+\label{namespacecs110graphics_a0715c42bb0e296007b96bd0a20903d16}
+
+
+A wrapper for the \hyperlink{classcs110graphics_1_1__RunWithYieldDelay}{\_\-RunWithYieldDelay} class. THIS SHOULD BE USED INSTEAD OF CREATING AN \hyperlink{classcs110graphics_1_1__RunWithYieldDelay}{\_\-RunWithYieldDelay} INSTANCE.
+
+Required Parameters:
+\begin{DoxyItemize}
+\item window -\/ \hyperlink{classcs110graphics_1_1Window}{Window}
+\item func -\/ function which returns a generator of int 
+\end{DoxyItemize}\hypertarget{namespacecs110graphics_af1a7cabc9d0dea87259e97ad88ef85ac}{
+\index{cs110graphics@{cs110graphics}!StartGraphicsSystem@{StartGraphicsSystem}}
+\index{StartGraphicsSystem@{StartGraphicsSystem}!cs110graphics@{cs110graphics}}
+\subsubsection[{StartGraphicsSystem}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.StartGraphicsSystem ( {\em first\_\-function}, \/   {\em width} = {\ttfamily 400}, \/   {\em height} = {\ttfamily 400}, \/   {\em background} = {\ttfamily \char`\"{}white\char`\"{}}, \/   {\em name} = {\ttfamily \char`\"{}Graphics~Window\char`\"{}})}}
+\label{namespacecs110graphics_af1a7cabc9d0dea87259e97ad88ef85ac}
+
+
+This initalizes the graphics system. Required Parameters:
+\begin{DoxyItemize}
+\item first\_\-function -\/ func
+\end{DoxyItemize}
+
+Optional Parameters:
+\begin{DoxyItemize}
+\item width -\/ int
+\item height -\/ int
+\item background -\/ string
+\item name -\/ string 
+\end{DoxyItemize}

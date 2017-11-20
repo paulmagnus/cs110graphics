@@ -1,0 +1,105 @@
+\contentsline {chapter}{\numberline {1}Namespace Index}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Package List}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Class Hierarchy}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Class Index}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Class List}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}Namespace Documentation}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Package cs110graphics}{7}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{8}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Function Documentation}{8}{subsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}RunWithYieldDelay}{8}{subsubsection.4.1.2.1}
+\contentsline {subsubsection}{\numberline {4.1.2.2}StartGraphicsSystem}{8}{subsubsection.4.1.2.2}
+\contentsline {chapter}{\numberline {5}Class Documentation}{11}{chapter.5}
+\contentsline {section}{\numberline {5.1}cs110graphics.\_\-RunWithYieldDelay Class Reference}{11}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{11}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}cs110graphics.Circle Class Reference}{12}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{12}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Member Function Documentation}{12}{subsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.1}set\_\-radius}{12}{subsubsection.5.2.2.1}
+\contentsline {section}{\numberline {5.3}cs110graphics.Event Class Reference}{13}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{13}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Member Function Documentation}{13}{subsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.2.1}get\_\-button}{13}{subsubsection.5.3.2.1}
+\contentsline {subsubsection}{\numberline {5.3.2.2}get\_\-description}{13}{subsubsection.5.3.2.2}
+\contentsline {subsubsection}{\numberline {5.3.2.3}get\_\-key}{13}{subsubsection.5.3.2.3}
+\contentsline {subsubsection}{\numberline {5.3.2.4}get\_\-mouse\_\-location}{14}{subsubsection.5.3.2.4}
+\contentsline {subsubsection}{\numberline {5.3.2.5}get\_\-root\_\-mouse\_\-location}{14}{subsubsection.5.3.2.5}
+\contentsline {section}{\numberline {5.4}cs110graphics.EventHandler Class Reference}{15}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Detailed Description}{15}{subsection.5.4.1}
+\contentsline {subsection}{\numberline {5.4.2}Member Function Documentation}{15}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.2.1}handke\_\-key\_\-release}{15}{subsubsection.5.4.2.1}
+\contentsline {subsubsection}{\numberline {5.4.2.2}handle\_\-key\_\-press}{15}{subsubsection.5.4.2.2}
+\contentsline {subsubsection}{\numberline {5.4.2.3}handle\_\-mouse\_\-enter}{16}{subsubsection.5.4.2.3}
+\contentsline {subsubsection}{\numberline {5.4.2.4}handle\_\-mouse\_\-leave}{16}{subsubsection.5.4.2.4}
+\contentsline {subsubsection}{\numberline {5.4.2.5}handle\_\-mouse\_\-move}{16}{subsubsection.5.4.2.5}
+\contentsline {subsubsection}{\numberline {5.4.2.6}handle\_\-mouse\_\-press}{16}{subsubsection.5.4.2.6}
+\contentsline {subsubsection}{\numberline {5.4.2.7}handle\_\-mouse\_\-release}{16}{subsubsection.5.4.2.7}
+\contentsline {section}{\numberline {5.5}cs110graphics.Fillable Class Reference}{17}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Detailed Description}{17}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Member Function Documentation}{18}{subsection.5.5.2}
+\contentsline {subsubsection}{\numberline {5.5.2.1}get\_\-border\_\-color}{18}{subsubsection.5.5.2.1}
+\contentsline {subsubsection}{\numberline {5.5.2.2}get\_\-border\_\-width}{18}{subsubsection.5.5.2.2}
+\contentsline {subsubsection}{\numberline {5.5.2.3}get\_\-fill\_\-color}{18}{subsubsection.5.5.2.3}
+\contentsline {subsubsection}{\numberline {5.5.2.4}get\_\-pivot}{18}{subsubsection.5.5.2.4}
+\contentsline {subsubsection}{\numberline {5.5.2.5}rotate}{18}{subsubsection.5.5.2.5}
+\contentsline {subsubsection}{\numberline {5.5.2.6}scale}{18}{subsubsection.5.5.2.6}
+\contentsline {subsubsection}{\numberline {5.5.2.7}set\_\-border\_\-color}{18}{subsubsection.5.5.2.7}
+\contentsline {subsubsection}{\numberline {5.5.2.8}set\_\-border\_\-width}{18}{subsubsection.5.5.2.8}
+\contentsline {subsubsection}{\numberline {5.5.2.9}set\_\-fill\_\-color}{18}{subsubsection.5.5.2.9}
+\contentsline {subsubsection}{\numberline {5.5.2.10}set\_\-pivot}{19}{subsubsection.5.5.2.10}
+\contentsline {section}{\numberline {5.6}cs110graphics.GraphicalObject Class Reference}{20}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Detailed Description}{20}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Member Function Documentation}{20}{subsection.5.6.2}
+\contentsline {subsubsection}{\numberline {5.6.2.1}add\_\-handler}{20}{subsubsection.5.6.2.1}
+\contentsline {subsubsection}{\numberline {5.6.2.2}get\_\-center}{21}{subsubsection.5.6.2.2}
+\contentsline {subsubsection}{\numberline {5.6.2.3}get\_\-depth}{21}{subsubsection.5.6.2.3}
+\contentsline {subsubsection}{\numberline {5.6.2.4}move}{21}{subsubsection.5.6.2.4}
+\contentsline {subsubsection}{\numberline {5.6.2.5}move\_\-to}{21}{subsubsection.5.6.2.5}
+\contentsline {subsubsection}{\numberline {5.6.2.6}set\_\-depth}{21}{subsubsection.5.6.2.6}
+\contentsline {section}{\numberline {5.7}cs110graphics.Image Class Reference}{22}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Detailed Description}{22}{subsection.5.7.1}
+\contentsline {subsection}{\numberline {5.7.2}Member Function Documentation}{23}{subsection.5.7.2}
+\contentsline {subsubsection}{\numberline {5.7.2.1}move}{23}{subsubsection.5.7.2.1}
+\contentsline {subsubsection}{\numberline {5.7.2.2}move\_\-to}{23}{subsubsection.5.7.2.2}
+\contentsline {subsubsection}{\numberline {5.7.2.3}resize}{23}{subsubsection.5.7.2.3}
+\contentsline {subsubsection}{\numberline {5.7.2.4}rotate}{23}{subsubsection.5.7.2.4}
+\contentsline {subsubsection}{\numberline {5.7.2.5}scale}{23}{subsubsection.5.7.2.5}
+\contentsline {subsubsection}{\numberline {5.7.2.6}size}{23}{subsubsection.5.7.2.6}
+\contentsline {section}{\numberline {5.8}cs110graphics.Oval Class Reference}{24}{section.5.8}
+\contentsline {subsection}{\numberline {5.8.1}Detailed Description}{24}{subsection.5.8.1}
+\contentsline {subsection}{\numberline {5.8.2}Member Function Documentation}{24}{subsection.5.8.2}
+\contentsline {subsubsection}{\numberline {5.8.2.1}set\_\-radii}{24}{subsubsection.5.8.2.1}
+\contentsline {section}{\numberline {5.9}cs110graphics.Polygon Class Reference}{25}{section.5.9}
+\contentsline {subsection}{\numberline {5.9.1}Detailed Description}{25}{subsection.5.9.1}
+\contentsline {section}{\numberline {5.10}cs110graphics.Rectangle Class Reference}{26}{section.5.10}
+\contentsline {subsection}{\numberline {5.10.1}Detailed Description}{26}{subsection.5.10.1}
+\contentsline {subsection}{\numberline {5.10.2}Member Function Documentation}{26}{subsection.5.10.2}
+\contentsline {subsubsection}{\numberline {5.10.2.1}set\_\-side\_\-lengths}{26}{subsubsection.5.10.2.1}
+\contentsline {section}{\numberline {5.11}cs110graphics.Square Class Reference}{27}{section.5.11}
+\contentsline {subsection}{\numberline {5.11.1}Detailed Description}{27}{subsection.5.11.1}
+\contentsline {subsection}{\numberline {5.11.2}Member Function Documentation}{27}{subsection.5.11.2}
+\contentsline {subsubsection}{\numberline {5.11.2.1}set\_\-side\_\-length}{27}{subsubsection.5.11.2.1}
+\contentsline {section}{\numberline {5.12}cs110graphics.Text Class Reference}{28}{section.5.12}
+\contentsline {subsection}{\numberline {5.12.1}Detailed Description}{28}{subsection.5.12.1}
+\contentsline {subsection}{\numberline {5.12.2}Member Function Documentation}{28}{subsection.5.12.2}
+\contentsline {subsubsection}{\numberline {5.12.2.1}move}{28}{subsubsection.5.12.2.1}
+\contentsline {subsubsection}{\numberline {5.12.2.2}move\_\-to}{29}{subsubsection.5.12.2.2}
+\contentsline {subsubsection}{\numberline {5.12.2.3}set\_\-size}{29}{subsubsection.5.12.2.3}
+\contentsline {subsubsection}{\numberline {5.12.2.4}set\_\-text}{29}{subsubsection.5.12.2.4}
+\contentsline {section}{\numberline {5.13}cs110graphics.Timer Class Reference}{30}{section.5.13}
+\contentsline {subsection}{\numberline {5.13.1}Detailed Description}{30}{subsection.5.13.1}
+\contentsline {subsection}{\numberline {5.13.2}Member Function Documentation}{30}{subsection.5.13.2}
+\contentsline {subsubsection}{\numberline {5.13.2.1}set\_\-function}{30}{subsubsection.5.13.2.1}
+\contentsline {subsubsection}{\numberline {5.13.2.2}set\_\-interval}{30}{subsubsection.5.13.2.2}
+\contentsline {subsubsection}{\numberline {5.13.2.3}start}{30}{subsubsection.5.13.2.3}
+\contentsline {subsubsection}{\numberline {5.13.2.4}stop}{31}{subsubsection.5.13.2.4}
+\contentsline {section}{\numberline {5.14}cs110graphics.Window Class Reference}{32}{section.5.14}
+\contentsline {subsection}{\numberline {5.14.1}Detailed Description}{32}{subsection.5.14.1}
+\contentsline {subsection}{\numberline {5.14.2}Member Function Documentation}{32}{subsection.5.14.2}
+\contentsline {subsubsection}{\numberline {5.14.2.1}add}{32}{subsubsection.5.14.2.1}
+\contentsline {subsubsection}{\numberline {5.14.2.2}remove}{33}{subsubsection.5.14.2.2}
+\contentsline {subsubsection}{\numberline {5.14.2.3}set\_\-background}{33}{subsubsection.5.14.2.3}
+\contentsline {subsubsection}{\numberline {5.14.2.4}set\_\-height}{33}{subsubsection.5.14.2.4}
+\contentsline {subsubsection}{\numberline {5.14.2.5}set\_\-title}{33}{subsubsection.5.14.2.5}
+\contentsline {subsubsection}{\numberline {5.14.2.6}set\_\-width}{33}{subsubsection.5.14.2.6}

@@ -1,0 +1,109 @@
+\hypertarget{classcs110graphics_1_1GraphicalObject}{
+\section{cs110graphics.GraphicalObject Class Reference}
+\label{classcs110graphics_1_1GraphicalObject}\index{cs110graphics::GraphicalObject@{cs110graphics::GraphicalObject}}
+}
+
+
+This is a parent class of any object which can be put into \hyperlink{classcs110graphics_1_1Window}{Window}.  
+Inheritance diagram for cs110graphics.GraphicalObject::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.68844cm]{classcs110graphics_1_1GraphicalObject}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classcs110graphics_1_1GraphicalObject_adb1af0d5a6baae3f9a08d21a3227c49f}{add\_\-handler}
+\begin{DoxyCompactList}\small\item\em Adds a handler to the graphical object. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1GraphicalObject_a062789c4cc9de38af32dcc4ff2058607}{get\_\-center}
+\begin{DoxyCompactList}\small\item\em Returns the center of the object. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1GraphicalObject_a6d9f5718cd0cf249e0d2842971bae17f}{get\_\-depth}
+\begin{DoxyCompactList}\small\item\em Returns the depth of the object. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}{move}
+\begin{DoxyCompactList}\small\item\em Moves the object dx pixels horizontally and dy pixels vertically. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}{move\_\-to}
+\begin{DoxyCompactList}\small\item\em Moves a graphical object to a point. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1GraphicalObject_a20d76d4ee4419c3065d61deb6cbc6700}{set\_\-depth}
+\begin{DoxyCompactList}\small\item\em Sets the depth of the \hyperlink{classcs110graphics_1_1GraphicalObject}{GraphicalObject}. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is a parent class of any object which can be put into \hyperlink{classcs110graphics_1_1Window}{Window}. No constructor exists in this class, but its methods are used by other objects that extend/inherit this class.
+
+Default values:
+\begin{DoxyItemize}
+\item depth = 50
+\item center = (200, 200) 
+\end{DoxyItemize}
+
+\subsection{Member Function Documentation}
+\hypertarget{classcs110graphics_1_1GraphicalObject_adb1af0d5a6baae3f9a08d21a3227c49f}{
+\index{cs110graphics::GraphicalObject@{cs110graphics::GraphicalObject}!add\_\-handler@{add\_\-handler}}
+\index{add\_\-handler@{add\_\-handler}!cs110graphics::GraphicalObject@{cs110graphics::GraphicalObject}}
+\subsubsection[{add\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.add\_\-handler ( {\em self}, \/   {\em handler\_\-object})}}
+\label{classcs110graphics_1_1GraphicalObject_adb1af0d5a6baae3f9a08d21a3227c49f}
+
+
+Adds a handler to the graphical object. 
+\begin{DoxyParams}{Parameters}
+\item[{\em handler\_\-object}]-\/ \hyperlink{classcs110graphics_1_1EventHandler}{EventHandler} -\/ the object that handles the events for this \hyperlink{classcs110graphics_1_1GraphicalObject}{GraphicalObject} \end{DoxyParams}
+\hypertarget{classcs110graphics_1_1GraphicalObject_a062789c4cc9de38af32dcc4ff2058607}{
+\index{cs110graphics::GraphicalObject@{cs110graphics::GraphicalObject}!get\_\-center@{get\_\-center}}
+\index{get\_\-center@{get\_\-center}!cs110graphics::GraphicalObject@{cs110graphics::GraphicalObject}}
+\subsubsection[{get\_\-center}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.get\_\-center ( {\em self})}}
+\label{classcs110graphics_1_1GraphicalObject_a062789c4cc9de38af32dcc4ff2058607}
+
+
+Returns the center of the object. \begin{DoxyReturn}{Returns}
+center -\/ tuple 
+\end{DoxyReturn}
+\hypertarget{classcs110graphics_1_1GraphicalObject_a6d9f5718cd0cf249e0d2842971bae17f}{
+\index{cs110graphics::GraphicalObject@{cs110graphics::GraphicalObject}!get\_\-depth@{get\_\-depth}}
+\index{get\_\-depth@{get\_\-depth}!cs110graphics::GraphicalObject@{cs110graphics::GraphicalObject}}
+\subsubsection[{get\_\-depth}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.get\_\-depth ( {\em self})}}
+\label{classcs110graphics_1_1GraphicalObject_a6d9f5718cd0cf249e0d2842971bae17f}
+
+
+Returns the depth of the object. \begin{DoxyReturn}{Returns}
+depth -\/ int 
+\end{DoxyReturn}
+\hypertarget{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}{
+\index{cs110graphics::GraphicalObject@{cs110graphics::GraphicalObject}!move@{move}}
+\index{move@{move}!cs110graphics::GraphicalObject@{cs110graphics::GraphicalObject}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.move ( {\em self}, \/   {\em dx}, \/   {\em dy})}}
+\label{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}
+
+
+Moves the object dx pixels horizontally and dy pixels vertically. 
+\begin{DoxyParams}{Parameters}
+\item[{\em dx}]-\/ int \item[{\em dy}]-\/ int \end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classcs110graphics_1_1Fillable_ae8f6c476e29c0810453dc16948e1730c}{cs110graphics.Fillable}, \hyperlink{classcs110graphics_1_1Image_a540d48247976343a91c610009a9af8cd}{cs110graphics.Image}, and \hyperlink{classcs110graphics_1_1Text_a6bd6f174fc82f2225a4d162ca6b90ec2}{cs110graphics.Text}.\hypertarget{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}{
+\index{cs110graphics::GraphicalObject@{cs110graphics::GraphicalObject}!move\_\-to@{move\_\-to}}
+\index{move\_\-to@{move\_\-to}!cs110graphics::GraphicalObject@{cs110graphics::GraphicalObject}}
+\subsubsection[{move\_\-to}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.move\_\-to ( {\em self}, \/   {\em point})}}
+\label{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}
+
+
+Moves a graphical object to a point. 
+\begin{DoxyParams}{Parameters}
+\item[{\em point}]-\/ tuple of (int $\ast$ int) \end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classcs110graphics_1_1Fillable_adcabc14e76d1160ff591b9ef7f3d6a97}{cs110graphics.Fillable}, \hyperlink{classcs110graphics_1_1Image_a4b2e775fbb0cb523f6bc09028dc05c65}{cs110graphics.Image}, and \hyperlink{classcs110graphics_1_1Text_a615a76c8d2edd6c6af5d39d4e2577a27}{cs110graphics.Text}.\hypertarget{classcs110graphics_1_1GraphicalObject_a20d76d4ee4419c3065d61deb6cbc6700}{
+\index{cs110graphics::GraphicalObject@{cs110graphics::GraphicalObject}!set\_\-depth@{set\_\-depth}}
+\index{set\_\-depth@{set\_\-depth}!cs110graphics::GraphicalObject@{cs110graphics::GraphicalObject}}
+\subsubsection[{set\_\-depth}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.set\_\-depth ( {\em self}, \/   {\em depth})}}
+\label{classcs110graphics_1_1GraphicalObject_a20d76d4ee4419c3065d61deb6cbc6700}
+
+
+Sets the depth of the \hyperlink{classcs110graphics_1_1GraphicalObject}{GraphicalObject}. 
+\begin{DoxyParams}{Parameters}
+\item[{\em depth}]-\/ int \end{DoxyParams}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{cs110graphics_8py}{cs110graphics.py}\end{DoxyCompactItemize}

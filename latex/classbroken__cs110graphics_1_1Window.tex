@@ -1,0 +1,139 @@
+\hypertarget{classbroken__cs110graphics_1_1Window}{
+\section{broken\_\-cs110graphics.Window Class Reference}
+\label{classbroken__cs110graphics_1_1Window}\index{broken\_\-cs110graphics::Window@{broken\_\-cs110graphics::Window}}
+}
+
+
+\hyperlink{classbroken__cs110graphics_1_1Window}{Window} acts as a canvas which other objects can be put onto.  
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classbroken__cs110graphics_1_1Window_a7578fe4d1852c432b923521c8884d40a}{\_\-\_\-init\_\-\_\-}
+\item 
+def \hyperlink{classbroken__cs110graphics_1_1Window_a92dfe6c1d31614011e1f74527bb06c34}{add}
+\begin{DoxyCompactList}\small\item\em Adds an object of type \hyperlink{classbroken__cs110graphics_1_1GraphicalObject}{GraphicalObject} to the \hyperlink{classbroken__cs110graphics_1_1Window}{Window} object. \item\end{DoxyCompactList}\item 
+def \hyperlink{classbroken__cs110graphics_1_1Window_a8ffc7e3db2161bec17e0d56e9742c3c2}{remove}
+\begin{DoxyCompactList}\small\item\em Removes an object of type \hyperlink{classbroken__cs110graphics_1_1GraphicalObject}{GraphicalObject} to the \hyperlink{classbroken__cs110graphics_1_1Window}{Window} object, assuming the object being deleted exists. \item\end{DoxyCompactList}\item 
+def \hyperlink{classbroken__cs110graphics_1_1Window_a2f751d4a6af7ace7dc4e1ad4d4da865c}{get\_\-height}
+\begin{DoxyCompactList}\small\item\em Returns the height of the window as an integer. \item\end{DoxyCompactList}\item 
+def \hyperlink{classbroken__cs110graphics_1_1Window_a39e0c2a0ae7a86cf92928a2a5c515b37}{get\_\-width}
+\begin{DoxyCompactList}\small\item\em Returns the width of the window as an integer. \item\end{DoxyCompactList}\item 
+def \hyperlink{classbroken__cs110graphics_1_1Window_ad2d9d73c97fe3eac5c1974bf4a81793a}{set\_\-background}
+\begin{DoxyCompactList}\small\item\em Sets the background color of the canvas. \item\end{DoxyCompactList}\item 
+def \hyperlink{classbroken__cs110graphics_1_1Window_a3eeafaf1782c5d9ab3643b06bb0fbb54}{set\_\-height}
+\begin{DoxyCompactList}\small\item\em Sets the height of the canvas. \item\end{DoxyCompactList}\item 
+def \hyperlink{classbroken__cs110graphics_1_1Window_af6004f9865cc8c168cc5e0959ba04050}{set\_\-title}
+\begin{DoxyCompactList}\small\item\em Sets the title of the window holding the canvas. \item\end{DoxyCompactList}\item 
+def \hyperlink{classbroken__cs110graphics_1_1Window_ab84dc19bc3658479e4b2386003f08570}{set\_\-width}
+\begin{DoxyCompactList}\small\item\em Sets the width of the canvas. \item\end{DoxyCompactList}\item 
+def \hyperlink{classbroken__cs110graphics_1_1Window_a6b54748e359110dad4a2397482ae429c}{refresh}
+\begin{DoxyCompactList}\small\item\em Refreshes all objects in the window. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classbroken__cs110graphics_1_1Window}{Window} acts as a canvas which other objects can be put onto. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classbroken__cs110graphics_1_1Window_a7578fe4d1852c432b923521c8884d40a}{
+\index{broken\_\-cs110graphics::Window@{broken\_\-cs110graphics::Window}!\_\-\_\-init\_\-\_\-@{\_\-\_\-init\_\-\_\-}}
+\index{\_\-\_\-init\_\-\_\-@{\_\-\_\-init\_\-\_\-}!broken_cs110graphics::Window@{broken\_\-cs110graphics::Window}}
+\subsubsection[{\_\-\_\-init\_\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Window.\_\-\_\-init\_\-\_\- ( {\em self}, \/   {\em width}, \/   {\em height}, \/   {\em background}, \/   {\em name}, \/   {\em first\_\-function} = {\ttfamily None}, \/   {\em master} = {\ttfamily None})}}
+\label{classbroken__cs110graphics_1_1Window_a7578fe4d1852c432b923521c8884d40a}
+
+\begin{DoxyParams}{Parameters}
+\item[{\em width}]-\/ int -\/ The width of the canvas \item[{\em height}]-\/ int -\/ The height of the canvas \item[{\em background}]-\/ str -\/ Background color of canvas. Can be either the name of a color (\char`\"{}yellow\char`\"{}), or a hex code (\char`\"{}\#FFFF00\char`\"{}) \item[{\em name}]-\/ str -\/ The title of the window \item[{\em first\_\-function}]-\/ proc(Window) -\/ {\bfseries (default: None)} When the window is created, it runs this function. \item[{\em master}]-\/ unkown type -\/ {\bfseries (default: None)} The parent widget. \end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Unless you understand how Tkinter works do not change master 
+\end{DoxyWarning}
+\hypertarget{classbroken__cs110graphics_1_1Window_a92dfe6c1d31614011e1f74527bb06c34}{
+\index{broken\_\-cs110graphics::Window@{broken\_\-cs110graphics::Window}!add@{add}}
+\index{add@{add}!broken_cs110graphics::Window@{broken\_\-cs110graphics::Window}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Window.add ( {\em self}, \/   {\em graphic})}}
+\label{classbroken__cs110graphics_1_1Window_a92dfe6c1d31614011e1f74527bb06c34}
+
+
+Adds an object of type \hyperlink{classbroken__cs110graphics_1_1GraphicalObject}{GraphicalObject} to the \hyperlink{classbroken__cs110graphics_1_1Window}{Window} object. 
+\begin{DoxyParams}{Parameters}
+\item[{\em graphic}]-\/ \hyperlink{classbroken__cs110graphics_1_1GraphicalObject}{GraphicalObject} \end{DoxyParams}
+\hypertarget{classbroken__cs110graphics_1_1Window_a2f751d4a6af7ace7dc4e1ad4d4da865c}{
+\index{broken\_\-cs110graphics::Window@{broken\_\-cs110graphics::Window}!get\_\-height@{get\_\-height}}
+\index{get\_\-height@{get\_\-height}!broken_cs110graphics::Window@{broken\_\-cs110graphics::Window}}
+\subsubsection[{get\_\-height}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Window.get\_\-height ( {\em self})}}
+\label{classbroken__cs110graphics_1_1Window_a2f751d4a6af7ace7dc4e1ad4d4da865c}
+
+
+Returns the height of the window as an integer. \begin{DoxyReturn}{Returns}
+height -\/ int 
+\end{DoxyReturn}
+\hypertarget{classbroken__cs110graphics_1_1Window_a39e0c2a0ae7a86cf92928a2a5c515b37}{
+\index{broken\_\-cs110graphics::Window@{broken\_\-cs110graphics::Window}!get\_\-width@{get\_\-width}}
+\index{get\_\-width@{get\_\-width}!broken_cs110graphics::Window@{broken\_\-cs110graphics::Window}}
+\subsubsection[{get\_\-width}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Window.get\_\-width ( {\em self})}}
+\label{classbroken__cs110graphics_1_1Window_a39e0c2a0ae7a86cf92928a2a5c515b37}
+
+
+Returns the width of the window as an integer. \begin{DoxyReturn}{Returns}
+width -\/ int 
+\end{DoxyReturn}
+\hypertarget{classbroken__cs110graphics_1_1Window_a6b54748e359110dad4a2397482ae429c}{
+\index{broken\_\-cs110graphics::Window@{broken\_\-cs110graphics::Window}!refresh@{refresh}}
+\index{refresh@{refresh}!broken_cs110graphics::Window@{broken\_\-cs110graphics::Window}}
+\subsubsection[{refresh}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Window.refresh ( {\em self})}}
+\label{classbroken__cs110graphics_1_1Window_a6b54748e359110dad4a2397482ae429c}
+
+
+Refreshes all objects in the window. This can be useful if depth problems exist during animation. \hypertarget{classbroken__cs110graphics_1_1Window_a8ffc7e3db2161bec17e0d56e9742c3c2}{
+\index{broken\_\-cs110graphics::Window@{broken\_\-cs110graphics::Window}!remove@{remove}}
+\index{remove@{remove}!broken_cs110graphics::Window@{broken\_\-cs110graphics::Window}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Window.remove ( {\em self}, \/   {\em graphic})}}
+\label{classbroken__cs110graphics_1_1Window_a8ffc7e3db2161bec17e0d56e9742c3c2}
+
+
+Removes an object of type \hyperlink{classbroken__cs110graphics_1_1GraphicalObject}{GraphicalObject} to the \hyperlink{classbroken__cs110graphics_1_1Window}{Window} object, assuming the object being deleted exists. 
+\begin{DoxyParams}{Parameters}
+\item[{\em graphic}]-\/ \hyperlink{classbroken__cs110graphics_1_1GraphicalObject}{GraphicalObject} \end{DoxyParams}
+\hypertarget{classbroken__cs110graphics_1_1Window_ad2d9d73c97fe3eac5c1974bf4a81793a}{
+\index{broken\_\-cs110graphics::Window@{broken\_\-cs110graphics::Window}!set\_\-background@{set\_\-background}}
+\index{set\_\-background@{set\_\-background}!broken_cs110graphics::Window@{broken\_\-cs110graphics::Window}}
+\subsubsection[{set\_\-background}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Window.set\_\-background ( {\em self}, \/   {\em background})}}
+\label{classbroken__cs110graphics_1_1Window_ad2d9d73c97fe3eac5c1974bf4a81793a}
+
+
+Sets the background color of the canvas. 
+\begin{DoxyParams}{Parameters}
+\item[{\em background}]-\/ string -\/ Background color of canvas. Can be either the name of a color (\char`\"{}yellow\char`\"{}), or a hex code (\char`\"{}\#FFFF00\char`\"{}) \end{DoxyParams}
+\hypertarget{classbroken__cs110graphics_1_1Window_a3eeafaf1782c5d9ab3643b06bb0fbb54}{
+\index{broken\_\-cs110graphics::Window@{broken\_\-cs110graphics::Window}!set\_\-height@{set\_\-height}}
+\index{set\_\-height@{set\_\-height}!broken_cs110graphics::Window@{broken\_\-cs110graphics::Window}}
+\subsubsection[{set\_\-height}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Window.set\_\-height ( {\em self}, \/   {\em height})}}
+\label{classbroken__cs110graphics_1_1Window_a3eeafaf1782c5d9ab3643b06bb0fbb54}
+
+
+Sets the height of the canvas. 
+\begin{DoxyParams}{Parameters}
+\item[{\em height}]-\/ int \end{DoxyParams}
+\hypertarget{classbroken__cs110graphics_1_1Window_af6004f9865cc8c168cc5e0959ba04050}{
+\index{broken\_\-cs110graphics::Window@{broken\_\-cs110graphics::Window}!set\_\-title@{set\_\-title}}
+\index{set\_\-title@{set\_\-title}!broken_cs110graphics::Window@{broken\_\-cs110graphics::Window}}
+\subsubsection[{set\_\-title}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Window.set\_\-title ( {\em self}, \/   {\em name})}}
+\label{classbroken__cs110graphics_1_1Window_af6004f9865cc8c168cc5e0959ba04050}
+
+
+Sets the title of the window holding the canvas. 
+\begin{DoxyParams}{Parameters}
+\item[{\em name}]-\/ string \end{DoxyParams}
+\hypertarget{classbroken__cs110graphics_1_1Window_ab84dc19bc3658479e4b2386003f08570}{
+\index{broken\_\-cs110graphics::Window@{broken\_\-cs110graphics::Window}!set\_\-width@{set\_\-width}}
+\index{set\_\-width@{set\_\-width}!broken_cs110graphics::Window@{broken\_\-cs110graphics::Window}}
+\subsubsection[{set\_\-width}]{\setlength{\rightskip}{0pt plus 5cm}def broken\_\-cs110graphics.Window.set\_\-width ( {\em self}, \/   {\em width})}}
+\label{classbroken__cs110graphics_1_1Window_ab84dc19bc3658479e4b2386003f08570}
+
+
+Sets the width of the canvas. 
+\begin{DoxyParams}{Parameters}
+\item[{\em width}]-\/ int \end{DoxyParams}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+broken\_\-cs110graphics.py\end{DoxyCompactItemize}

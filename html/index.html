@@ -37,13 +37,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <div class="contents">
-<h1>CS 110 Graphics</h1><h3>1.0 </h3><p>A Tkinter based graphics library for introductory computer science. </p>
-<dl class="author"><dt><b>Authors:</b></dt><dd>Paul Magnus '18 </dd>
+<h1>CS 110 Graphics</h1><p>A Tkinter based graphics library for introductory computer science. </p>
+<h2>Usage</h2>
+<hr/>
+ All files that use the CS 110 Graphics package must have the following line at the top of the file. </p>
+<div class="fragment"><pre class="fragment"> <span class="keyword">from</span> cs110graphics <span class="keyword">import</span> *
+</pre></div><p> A simple implementation using the CS 110 Graphics package is shown below. The shown code will create a window and add a rectangle. StartGraphicsSystem must be used in all files to create the window and begin the main function. </p>
+<div class="fragment"><pre class="fragment"> <span class="keyword">from</span> cs110graphics <span class="keyword">import</span> *
+
+ <span class="keyword">def </span>main(window):
+     rectangle = Rectangle(window)
+     window.add(rectangle)
+
+ <span class="keywordflow">if</span> __name__ == <span class="stringliteral">&quot;__main__&quot;</span>:
+     StartGraphicsSystem(main)
+</pre></div> <dl class="author"><dt><b>Authors:</b></dt><dd>Paul Magnus '18 </dd>
 <dd>
-Inew Ayara '20 </dd>
+Ines Ayara '20 </dd>
 <dd>
 Matthew R. Jenkins '20 </dd></dl>
-<dl class="version"><dt><b>Version:</b></dt><dd>1.1 </dd></dl>
+<dl class="version"><dt><b>Version:</b></dt><dd>1.2 </dd></dl>
 <dl class="date"><dt><b>Date:</b></dt><dd>Summer 2017 </dd></dl>
 </div>
 <!--- window showing the filter options -->

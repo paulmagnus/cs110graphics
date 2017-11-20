@@ -1,0 +1,8 @@
+PWD //gemini.cs.hamilton.edu/acampbel/CSPy-shared/ulysses/cs110graphics/latex
+INPUT c:/texlive/2017/texmf.cnf
+INPUT c:/texlive/2017/texmf-dist/web2c/texmf.cnf
+INPUT c:/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT ./annotated.tex
+OUTPUT annotated.log
+INPUT c:/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT c:/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm

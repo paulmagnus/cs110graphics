@@ -72,6 +72,14 @@ Inheritance diagram for cs110graphics.Text:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the point size of the text.  <a href="#ad470aa26235fc2f5f1459c3750251207"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Text.html#ab12aa7478ca6a2b2015b7e8544674c73">set_text</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the text.  <a href="#ab12aa7478ca6a2b2015b7e8544674c73"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#adb1af0d5a6baae3f9a08d21a3227c49f">add_handler</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds a handler to the graphical object.  <a href="#adb1af0d5a6baae3f9a08d21a3227c49f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#a062789c4cc9de38af32dcc4ff2058607">get_center</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the center of the object.  <a href="#a062789c4cc9de38af32dcc4ff2058607"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#a6d9f5718cd0cf249e0d2842971bae17f">get_depth</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the depth of the object.  <a href="#a6d9f5718cd0cf249e0d2842971bae17f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#a20d76d4ee4419c3065d61deb6cbc6700">set_depth</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the depth of the <a class="el" href="classcs110graphics_1_1GraphicalObject.html" title="This is a parent class of any object which can be put into Window.">GraphicalObject</a>.  <a href="#a20d76d4ee4419c3065d61deb6cbc6700"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p><a class="el" href="classcs110graphics_1_1Text.html" title="Text which can be added to a Window object.">Text</a> which can be added to a <a class="el" href="classcs110graphics_1_1Window.html" title="Window acts as a canvas which other objects can be put onto.">Window</a> object. </p>
@@ -127,6 +135,83 @@ Inheritance diagram for cs110graphics.Text:</div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="adb1af0d5a6baae3f9a08d21a3227c49f"></a><!-- doxytag: member="cs110graphics::Text::add_handler" ref="adb1af0d5a6baae3f9a08d21a3227c49f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cs110graphics.GraphicalObject.add_handler </td>
+          <td>(</td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>handler_object</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Adds a handler to the graphical object. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>handler_object</em>&nbsp;</td><td>- <a class="el" href="classcs110graphics_1_1EventHandler.html" title="The EventHandler class should be extended by any class that reacts to user input...">EventHandler</a> - the object that handles the events for this <a class="el" href="classcs110graphics_1_1GraphicalObject.html" title="This is a parent class of any object which can be put into Window.">GraphicalObject</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a062789c4cc9de38af32dcc4ff2058607"></a><!-- doxytag: member="cs110graphics::Text::get_center" ref="a062789c4cc9de38af32dcc4ff2058607" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cs110graphics.GraphicalObject.get_center </td>
+          <td>(</td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>self</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns the center of the object. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>center - tuple </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6d9f5718cd0cf249e0d2842971bae17f"></a><!-- doxytag: member="cs110graphics::Text::get_depth" ref="a6d9f5718cd0cf249e0d2842971bae17f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cs110graphics.GraphicalObject.get_depth </td>
+          <td>(</td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>self</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns the depth of the object. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>depth - int </dd></dl>
 
 </div>
 </div>
@@ -208,6 +293,41 @@ Inheritance diagram for cs110graphics.Text:</div>
 </dl>
 
 <p>Reimplemented from <a class="el" href="classcs110graphics_1_1GraphicalObject.html#abe2d480265df7ac9447205c52c6946df">cs110graphics.GraphicalObject</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a20d76d4ee4419c3065d61deb6cbc6700"></a><!-- doxytag: member="cs110graphics::Text::set_depth" ref="a20d76d4ee4419c3065d61deb6cbc6700" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cs110graphics.GraphicalObject.set_depth </td>
+          <td>(</td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>depth</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Sets the depth of the <a class="el" href="classcs110graphics_1_1GraphicalObject.html" title="This is a parent class of any object which can be put into Window.">GraphicalObject</a>. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>depth</em>&nbsp;</td><td>- int </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
