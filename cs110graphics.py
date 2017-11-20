@@ -1,28 +1,63 @@
 ## @package cs110graphics
-# Contains a CSPy-friendly version of a Tkinter based graphics library.
+# @mainpage CS 110 Graphics
+# A Tkinter based graphics library for introductory computer science.
 #
-# Paul Magnus '18, Ines Ayara '20, Matthew R. Jenkins '20
+# <h2>Usage</h2>
+# <hr>
+# All files that use the CS 110 Graphics package must have the following line
+# at the top of the file.
+# @code
+# from cs110graphics import *
+# @endcode
+# A simple implementation using the CS 110 Graphics package is shown below.
+# The shown code will create a window and add a rectangle. StartGraphicsSystem
+# must be used in all files to create the window and begin the main function.
+# @code
+# from cs110graphics import *
 #
-# Summer 2017
+# def main(window):
+#     rectangle = Rectangle(window)
+#     window.add(rectangle)
+#
+# if __name__ == "__main__":
+#     StartGraphicsSystem(main)
+# @endcode
+# @authors Paul Magnus '18
+# @authors Ines Ayara '20
+# @authors Matthew R. Jenkins '20
+# @version 1.2
+# @date Summer 2017
+
 from tkinter import *  # for pretty much everything graphics related
 import math  # for rotate
 import inspect
 from PIL import Image as image  # for Image class
 from PIL import ImageTk as itk  # for Image class
 
-## This window acts as a canvas which other objects can be put onto.
+## @file cs110graphics.py
+# The main cs110graphics file
+
+
+#-------------------------------------------------------------------------------
 #
-# Required Parameters:
-# - width - int - Width of canvas.
-# - height - int - Height of canvas.
-# - background - str - Background color of canvas. Can be either the name of a
-#color ("yellow"), or a hex code ("#FFFF00").
-# - name - str - The title of the window.
-# - first_function - proc(Window) - When the window is created, it runs this
-# function after everything is run. (default: None)
-# - master - unknown type - necessary for the creation of the Tkinter widgets. 
-# (default: None)
+#  Window
+#
+#-------------------------------------------------------------------------------
+
+## Window acts as a canvas which other objects can be put onto.
+#
+# The standard size of window created by StartGraphicsSystem is
+# width = 400, height = 400.
 class Window:
+    ## @param width - int - The width of the canvas
+    # @param height - int - The height of the canvas
+    # @param background - str - Background color of canvas. Can be either the
+    # name of a color ("yellow"), or a hex code ("#FFFF00")
+    # @param name - str - The title of the window
+    # @param first_function - proc(Window) - <b>(default: None)</b> When the
+    # window is created, it runs this function.
+    # @param master - unkown type - <b>(default: None)</b> The parent widget.
+    # @warning Unless you understand how Tkinter works do not change master
     def __init__(self, width, height, background, name, first_function=None,
                  master=None):
         # type checking
@@ -55,9 +90,8 @@ class Window:
         # running first function
         self._first_function(self)
 
-    ## Adds an object of type GraphicalObject to the Window object.
-    # Required Parameters:
-    # - graphic - GraphicalObject
+    ## Adds an object to the Window.
+    # @param graphic - GraphicalObject
     def add(self, graphic):
         # type checking
         assert isinstance(graphic, GraphicalObject), \
@@ -66,10 +100,9 @@ class Window:
         # method of construction
         graphic._add_to()
 
-    ## Removes an object of type GraphicalObject to the Window object, assuming
-    # the object being deleted exists.    
-    # Required Parameters:
-    # - graphic - GraphicalObject
+    ## Removes an object from the Window object, assuming
+    # the object being deleted exists.
+    # @param graphic - GraphicalObject
     def remove(self, graphic):
         # type checking and making sure the object is in the list
         assert isinstance(graphic, GraphicalObject) and \
@@ -84,16 +117,18 @@ class Window:
         graphic._enabled = False
 
     ## Returns the height of the window as an integer.
+    # @return height - int
     def get_height(self):
         return self._height
 
     ## Returns the width of the window as an integer.
+    # @return width - int
     def get_width(self):
         return self._width
 
     ## Sets the background color of the canvas.
-    # Required Parameters:
-    # - background - string
+    # @param background - string - Background color of canvas. Can be either the
+    # name of a color ("yellow"), or a hex code ("#FFFF00")
     def set_background(self, background):
         # type checking
         assert isinstance(background, str), \
@@ -102,8 +137,7 @@ class Window:
         self._canvas.configure(bg=background)
 
     ## Sets the height of the canvas.
-    # Required Parameters:
-    # - height - int
+    # @param height - int
     def set_height(self, height):
         # type checking
         assert isinstance(height, int), \
@@ -112,8 +146,7 @@ class Window:
         self._canvas.configure(height=height)
 
     ## Sets the title of the window holding the canvas.
-    # Required Parameters:
-    # - name - string
+    # @param name - string
     def set_title(self, name):
         # type checking
         assert isinstance(name, str), \
@@ -122,8 +155,7 @@ class Window:
         self._root.title(name)
 
     ## Sets the width of the canvas.
-    # Required Parameters:
-    # - width - height
+    # @param width - height
     def set_width(self, width):
         # type checking
         assert isinstance(width, int), \
@@ -143,16 +175,21 @@ class Window:
                 item[0] = graphic._depth
 
 
+#-------------------------------------------------------------------------------
+#
+#  StartGraphicsSystem
+#
+#-------------------------------------------------------------------------------
+                
 ## This initalizes the graphics system.
-#
-# Required Parameters:
-# - first_function - func
-#
-# Optional Parameters:
-# - width - int
-# - height - int
-# - background - string
-# - name - string
+# @param first_function - func
+# @param width - int - <b>(default: 400)</b>
+# @param height - int - <b>(default: 400)</b>
+# @param background - string - <b>(default: "white")</b>
+# Background color of canvas. Can be either the
+# name of a color ("yellow"), or a hex code ("#FFFF00")
+# @param name - string - <b>(default: "Graphics Window")</b>
+# The title of the window
 def StartGraphicsSystem(first_function, width=400, height=400,
                         background="white", name="Graphics Window"):
     # creates a window with each parameter
@@ -167,11 +204,23 @@ def StartGraphicsSystem(first_function, width=400, height=400,
         pass
 
 
-## An event which gets bound to an object. Used by EventHandler objects.
+#-------------------------------------------------------------------------------
 #
-# Required Parameters:
-# - event - TkEvent - The event which the user want applied an an object.
+#  Event
+#
+#-------------------------------------------------------------------------------
+    
+## An object representing an action from the user. Used by EventHandler objects.
+# User actions that create Event objects include:
+# - Pressing/Releasing a key on the keyboard
+# - Pressing/Releasing a button on the mouse while on a GraphicalObject with an
+# event handler
+# - Moving the mouse while on a GraphicalObject with an event handler
+#
+# Each of these actions will call their corresponding methods in EventHandler
+# automatically and give an instance of Event to the method called.
 class Event:
+    
     def __init__(self, event):
         # converting each necessary tkinter event parameter to something easier
         # to get access to and easier to understand
@@ -181,8 +230,16 @@ class Event:
         self._keysym = event.keysym
         self._num = event.num
 
-    ## Returns the mouse button that is attached to the event. Returns None if
+    ## Returns the mouse button that is attached to the event. Returns
+    # <tt>None</tt> if
     # the button fails to exist (like if the Event handles a key press).
+    # @return button - str
+    #
+    # Possible returns are:
+    # - "Left Mouse Button"
+    # - "Right Mouse Button"
+    # - "Middle Mouse Button"
+    # - None
     def get_button(self):
         # this is mostly to handle user stupidity - why would you put
         # get_button in a handle_key function if get_key exists?
@@ -197,6 +254,16 @@ class Event:
         return numTranslation[self._num]
 
     ## Returns the description of the event.
+    # @return description - str
+    #
+    # Possible returns are:
+    # - "Key Press"
+    # - "Key Release"
+    # - "Mouse Press"
+    # - "Mouse Release"
+    # - "Mouse Move"
+    # - "Mouse Enter"
+    # - "Mouse Leave"
     def get_description(self):
         # dictionary to translate each number to a string
         descriptionTranslation = {
@@ -212,6 +279,10 @@ class Event:
 
     ## Returns the keyboard key that is attached to the event. Returns None if
     # the key fails to exist (like if the Event handles a mouse press).
+    # @return key - str
+    #
+    # Most keys will evaluate to a single character (eg. pressing the a-key will
+    # result in "a" while pressing shift-a will result in "A").
     def get_key(self):
         # this is mostly to handle user stupidity - why would you put
         # get_key in a handle_mouse function if get_button exists?
@@ -219,17 +290,21 @@ class Event:
             return None
         return self._keysym
 
-    ## Returns a tuple of the x and y coordinates of the mouse location in the
-    # canvas.    
+    ## Returns a tuple of the x and y coordinates of the mouse
+    # location in the canvas.
+    # @return location - tuple of (int * int) - (e.g. (200, 200))
     def get_mouse_location(self):
         return self._location
 
     ## Returns a tuple of the x and y coordinates of the mouse location in the
-    # window.
+    # window. Typically using get_mouse_location is more applicable.
+    # @return location - tuple of (int * int) - (e.g. (200, 200))
     def get_root_mouse_location(self):
         return self._rootLocation
 
 
+# CONTINUE FROM HERE
+    
 ## Handles an event. These are overloaded by the user, so by default they're 
 # empty except for the pass command.
 class EventHandler:
