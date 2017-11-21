@@ -34,6 +34,13 @@ import inspect
 from PIL import Image as image  # for Image class
 from PIL import ImageTk as itk  # for Image class
 
+
+#-------------------------------------------------------------------------------
+#
+#  Error Handling
+#
+#-------------------------------------------------------------------------------
+
 # If this exception is thrown, something is wrong with the graphics
 # package.
 class CS110Exception(Exception):
@@ -46,10 +53,17 @@ class CS110Exception(Exception):
 
 def _check_type(param, param_name, target_type):
     if not isinstance(param, target_type):
-        raise TypeError("The parameter '" + param_name + "' should be an " +
-                        str(type(target_type).__name__) +
+        raise TypeError("\nThe parameter '" + param_name + "' should be a " +
+                        str(target_type.__name__) +
                         " but instead was a " +
-                        str(type(param).__name__))
+                        str(type(param).__name__) + "\n" +
+                        param_name + " = " + str(param))
+
+def _is_point(point):
+    return (isinstance(point, tuple) and
+            len(point) == 2 and
+            isinstance(point[0], int) and
+            isinstance(point[1], int))
 
 ## @file cs110graphics.py
 # The main cs110graphics file
@@ -80,7 +94,7 @@ class Window:
         # type checking
         _check_type(width, "width", int)
         _check_type(height, "height", int)
-        _check_type(background, "background" str)
+        _check_type(background, "background", str)
         _check_type(name, "name", str)
         if not ((first_function is None) or callable(first_function)):
             raise TypeError("The parameter 'first_function' should be a " +
@@ -125,7 +139,8 @@ class Window:
 
         # deferring to each object since each object requires a different
         # method of construction
-        graphic._add_to()
+        graphic._enabled = True
+        self.refresh(start=graphic)
 
     ## Removes an object from the Window.
     # @param graphic - GraphicalObject
@@ -133,9 +148,7 @@ class Window:
         # type checking
         _check_type(graphic, "graphic", GraphicalObject)
 
-        if [graphic._depth, graphic._tag, graphic] in self._graphics:
-            # only remove if the object is on the window
-            graphic._remove()
+        graphic._remove()
 
     ## Returns the height of the window as an integer.
     # @return height - int
@@ -184,25 +197,39 @@ class Window:
         self._width = width
         self._canvas.configure(width=width)
 
+    # I think this is deprecated
     # Whenever an object is updated through external functions, its tag is
     # overwritten. This function goes into self._graphics and replaces the old
     # tag with a newer one, as well as replacing its depth with a newer one.
     def _update_tag(self, graphic):
         try:
             _check_type(graphic, "graphic", GraphicalObject)
-        except TypeError, (instance):
+        except TypeError as instance:
             raise CS110Exception(str(instance))
 
-        #-------------------------------------------
-        # TRY USING ALIASING HERE FOR self._graphics
-        #-------------------------------------------
-        
         # goes through every item in self._graphics, then saves the object's
         # tag and depth if it's found
         for item in self._graphics:
             if item[2] == graphic:
                 item[1] = graphic._tag
                 item[0] = graphic._depth
+
+    ## Refreshes all objects in the window.
+    # All objects are redrawn in depth order.
+    # @param start - GraphicalObject - <b>(default: None)</b> only objects with
+    # the same or equal depth to this object are refreshed.
+    def refresh(self, start = None):
+        if not start is None:
+            _check_type(start, "start", GraphicalObject)
+            start_depth = start.get_depth()
+        
+        self._graphics.sort()
+        
+        for graphic in self._graphics:
+            # graphic[0] is the object's depth
+            if graphic[0] >= start_depth:
+                # refresh the graphic
+                graphic[2]._refresh()
 
 
 #-------------------------------------------------------------------------------
@@ -541,10 +568,41 @@ def _call_handler(handler, event):
 # - depth = 50
 # - center = (200, 200)
 class GraphicalObject:
-    def __init__(self):
-        self._depth = 50
-        self._center = (200, 200)
+    def __init__(self,
+                 window = None,
+                 center = (200, 200),
+                 depth = 50,
+                 pivot = None):
+
+        _check_type(window, "window", Window)
+        if not _is_point(center):
+            raise TypeError("\nThe parameter 'center' should be a " +
+                            "tuple of (int * int) but instead was a " +
+                            str(type(center).__name__) + "\n" +
+                            "center = " + str(center))
+
+        if not depth is None:
+            _check_type(depth, "depth", int)
+
+        if not pivot is None:
+            if not _is_point(pivot):
+                raise TypeError("\nThe parameter 'pivot' should be a " +
+                                "tuple of (int * int) but instead was a " +
+                                str(type(pivot).__name__) + "\n" +
+                                "pivot = " + str(pivot))
+        
+        self._depth = depth
+        self._center = center
+        self._window = window
         self._has_handlers = False
+        self._enabled = False
+        self._tag = -1
+        self._pivot = pivot
+
+        self._graphic_list = [self._depth,
+                              self._tag,
+                              self]
+        self._window._graphics.append(self._graphic_list)
 
     ## Adds a handler to the graphical object.
     # @param handler_object - EventHandler - the object that handles
@@ -613,89 +671,135 @@ class GraphicalObject:
     # @param dx - int
     # @param dy - int
     def move(self, dx, dy):
-        # type checking
-        assert isinstance(dx, int) and isinstance(dy, int), \
-            "Make sure dx and dy are both ints."
+        _check_type(dx, "dx", int)
+        _check_type(dy, "dy", int)
+
         self._center = (self._center[0] + dx, self._center[1] + dy)
-        # goes through each point and increments it by dx or dy depending if
-        # its index is even or odd
-        for i in range(len(self._points)):
-                self._points[i] = (self._points[i][0] + dx,
-                                   self._points[i][1] + dy)
-        self._refresh()
+        self._move_graphic(dx, dy)
+
+        if not self._pivot is None:
+            self._pivot = (self._pivot[0] + dx,
+                           self._pivot[1] + dy)
+
+        # refresh all objects to keep depth correct
+        self._window.refresh(start=self)
+    
+    # def move(self, dx, dy):
+    #     # type checking
+    #     _check_type(dx, "dx", int)
+    #     _check_type(dy, "dy", int)
+
+    #     self._center = (self._center[0] + dx, self._center[1] + dy)
+    #     # goes through each point and increments it by dx or dy depending if
+    #     # its index is even or odd
+    #     for i in range(len(self._points)):
+    #             self._points[i] = (self._points[i][0] + dx,
+    #                                self._points[i][1] + dy)
+    #     self._refresh()
 
     ## Moves a graphical object to a point.
     # @param point - tuple of (int * int)
     def move_to(self, point):
         # type checking
-        assert isinstance(point, tuple) and len(point) == 2 and \
-            isinstance(point[0], int) and isinstance(point[1], int), \
-            "Make sure point is a tuple of (int * int)."
-        difference = (self._center[0] - point[0], self._center[1] - point[1])
+        if not _is_point(point):
+            raise TypeError("\nThe parameter 'point' should be a " +
+                            "tuple of (int * int) but instead was a " +
+                            str(type(point).__name__) + "\n" +
+                            "point = " + str(point))
+
+        dx = point[0] - self._center[0]
+        dy = point[1] - self._center[1]
+        
+        self._move_graphic(dx, dy)
+
         self._center = point
-        # goes through each point and increments it by dx or dy depending if
-        # its index is even or odd
-        for i in range(len(self._points)):
-                self._points[i] = (self._points[i][0] - difference[0],
-                                   self._points[i][1] - difference[1])
-        self._refresh()
+
+        if not self._pivot is None:
+            self._pivot = (self._pivot[0] + dx,
+                           self._pivot[1] + dy)
+        
+        # refresh all objects to keep depth correct
+        self._window.refresh(start=self)
+
+    def _move_graphic(self, dx, dy):
+        raise NotImplementedError
 
     # Removes and adds an object after it's been changed.
     def _refresh(self):
-        # since this is run for every object we need a special case if the
-        # object is a graphical object and not a fillable
-            # in that case, we remove it and readd it without using any canvas
-            # operators, add handlers if they exist, and return
-        if isinstance(self, Text) or isinstance(self, Image):
-            self._remove_from(self._window)
-            self._add_to()
-            self._window._update_tag(self)
-            if self._has_handlers:
-                self.add_handler(self._parent_object)
-        else:
-            # from here on out we're assuming fillables only.
-            # we remove the object from the window, and then if the object is
-            # disabled we readd it with the HIDDEN state, otherwise just readd
-            # it
-            self._remove_from(self._window)
-            if self._enabled is False:
-                self._tag = self._window._canvas.create_polygon(
-                    *self._points,
-                    width=self.get_border_width(),
-                    fill=self.get_fill_color(),
-                    outline=self.get_border_color(),
-                    state=HIDDEN
-                )
-            else:
-                self._tag = self._window._canvas.create_polygon(
-                    *self._points,
-                    width=self.get_border_width(),
-                    fill=self.get_fill_color(),
-                    outline=self.get_border_color()
-                )
-            # we then update the tag, and then readd handlers if they exist
-            # if we don't then the event will only run once and then not again
-            self._window._update_tag(self)
-            if self._has_handlers:
-                self.add_handler(self._parent_object)
+        if self._enabled:
+            self._remove()
+            self._add()
+            # deal with handlers
+        
+        # # since this is run for every object we need a special case if the
+        # # object is a graphical object and not a fillable
+        #     # in that case, we remove it and readd it without using any canvas
+        #     # operators, add handlers if they exist, and return
+        # if isinstance(self, Text) or isinstance(self, Image):
+        #     self._remove_from(self._window)
+        #     self._add_to()
+        #     self._window._update_tag(self)
+        #     if self._has_handlers:
+        #         self.add_handler(self._parent_object)
+        # else:
+        #     # from here on out we're assuming fillables only.
+        #     # we remove the object from the window, and then if the object is
+        #     # disabled we readd it with the HIDDEN state, otherwise just readd
+        #     # it
+        #     self._remove_from(self._window)
+        #     if self._enabled is False:
+        #         self._tag = self._window._canvas.create_polygon(
+        #             *self._points,
+        #             width=self.get_border_width(),
+        #             fill=self.get_fill_color(),
+        #             outline=self.get_border_color(),
+        #             state=HIDDEN
+        #         )
+        #     else:
+        #         self._tag = self._window._canvas.create_polygon(
+        #             *self._points,
+        #             width=self.get_border_width(),
+        #             fill=self.get_fill_color(),
+        #             outline=self.get_border_color()
+        #         )
+        #     # we then update the tag, and then readd handlers if they exist
+        #     # if we don't then the event will only run once and then not again
+        #     self._window._update_tag(self)
+        #     if self._has_handlers:
+        #         self.add_handler(self._parent_object)
 
     ## Removes a graphical object from the canvas.
-    def _remove_from(self, window):
-        window._canvas.delete(self._tag)
+    def _remove(self):
+        if self._enabled:
+            if self._tag != -1:
+                self._window._canvas.delete(self._tag)
+                # self._window._graphics.remove([self._depth, self._tag, self])
+                self._tag = -1
+                self._update_graphic_list()
+            self._enabled = False
+
+    def _add(self):
+        raise NotImplementedError
 
     ## Sets the depth of the GraphicalObject.
     # @param depth - int
     def set_depth(self, depth):
         # type checking
-        assert isinstance(depth, int), \
-            "Make sure depth is an int."
+        _check_type(depth, "depth", int)
+    
         self._depth = depth
-        self._window._update_tag(self)
-        self._window._graphics.sort()
-        # get rid of all objects and readd them in depth order
-        for graphic in reversed(self._window._graphics):
-            graphic[2]._refresh()
+        # self._window._update_tag(self)
+        self._update_graphic_list()
+        # self._window._graphics.sort()
 
+        # get rid of all objects and readd them in depth order
+        self._window.refresh(start=self)
+
+    # Hopefully with list aliasing, this updates the list in window
+    def _update_graphic_list(self):
+        self._graphic_list[0] = self._depth
+        self._graphic_list[1] = self._tag
+        
 
 #-------------------------------------------------------------------------------
 #
@@ -713,14 +817,33 @@ class GraphicalObject:
 # - fill color = "white"
 # - pivot = center
 class Fillable(GraphicalObject):
-    def __init__(self):
-        GraphicalObject.__init__(self)
+    def __init__(self,
+                 window = None,
+                 center = (200, 200),
+                 points = [],
+                 pivot = (200, 200),
+                 depth = 50):
+        
+        GraphicalObject.__init__(self,
+                                 window = window,
+                                 center = center,
+                                 depth = depth,
+                                 pivot = pivot)
         # default values - otherwise when an object is changed later it reverts
         # any changes that were made
+
+        _check_type(points, "points", list)
+        
+        for point in points:
+            if not _is_point(point):
+                raise TypeError("\nThe parameter 'points' should be a " +
+                                "list of tuples of (int * int)\n" +
+                                "points = " + str(points))
+        
         self._border_color = "black"
         self._border_width = 2
         self._fill_color = "white"
-        self._pivot = self._center
+        self._points = points
 
     ## Returns the border color.
     # @return border_color - str - Can be either the
@@ -748,9 +871,8 @@ class Fillable(GraphicalObject):
     # @param degrees - int
     def rotate(self, degrees):
         # type checking
-        # print("DEBUG: before rotate: " + str(self._center))
-        assert isinstance(degrees, int), \
-            "Make sure degrees is an int."
+        _check_type(degrees, "degrees", int)
+        
         # calculates radians, runs _rotate_helper, moves back to its center and
         # refreshes
         radians = (math.pi / 180) * degrees
@@ -758,95 +880,117 @@ class Fillable(GraphicalObject):
             self._points[i] = _rotate_helper(self._points[i],
                                              radians,
                                              self._pivot)
-        # print("DEBUG: after rotate: " + str(self._center))
+
         self.move_to(self._center)
-        self._refresh()
 
     ## Scales the object up or down depending on the factor.
     # @param factor - float
     def scale(self, factor):
         # type checking
-        assert isinstance(factor, float), \
-            "Make sure the scale factor is a float."
+        _check_type(factor, "factor", float)
+
         # saves the center, moves the object to the origin, modifies every
         # point so it's scaled, moves it back to the center and refreshes
         temp_center = self._center
         self.move_to((0, 0))
+
         for i in range(len(self._points)):
             temp_tuple = (int(self._points[i][0] * factor),
                           int(self._points[i][1] * factor))
             self._points[i] = temp_tuple
         self._pivot = (round(self._pivot[0] * factor),
                        round(self._pivot[1] * factor))
+
         self.move_to(temp_center)
         self._center = temp_center
-        self._refresh()
+        self._window.refresh(start=self)
 
-    def move(self, dx, dy):
-        GraphicalObject.move(self, dx, dy)
+    def _move_graphic(self, dx, dy):
+        for i in range(len(self._points)):
+            self._points[i] = (self._points[i][0] + dx,
+                               self._points[i][1] + dy)
 
-        # update pivot
-        self._pivot = (self._pivot[0] + dx, self._pivot[1] + dy)
+        if self._enabled:
+            self._window.refresh(start=self)
 
-    def move_to(self, point):
-        difference = (self._pivot[0] - self._center[0],
-                      self._pivot[1] - self._center[1])
+    # def move(self, dx, dy):
+    #     GraphicalObject.move(self, dx, dy)
+
+    #     # update pivot
+    #     self._pivot = (self._pivot[0] + dx, self._pivot[1] + dy)
+
+    # def move_to(self, point):
+    #     difference = (self._pivot[0] - self._center[0],
+    #                   self._pivot[1] - self._center[1])
         
-        GraphicalObject.move_to(self, point)
+    #     GraphicalObject.move_to(self, point)
 
-        self._pivot = (self._center[0] + difference[0],
-                       self._center[1] + difference[1])
+    #     self._pivot = (self._center[0] + difference[0],
+    #                    self._center[1] + difference[1])
 
     ## Sets the border color.
     # @param color - string - Can be either the
     # name of a color ("yellow"), or a hex code ("#FFFF00")
     def set_border_color(self, color):
         # type checking
-        assert isinstance(color, str), \
-            "Make sure the border color is a string."
+        _check_type(color, "color", str)
+        
         self._border_color = color
-        self._window._canvas.itemconfigure(self._tag, outline=color)
+
+        if self._enabled:
+            self._window._canvas.itemconfigure(self._tag, outline=color)
 
     ## Sets the border width.
     # @param width - int
     def set_border_width(self, width):
         # type checking
-        assert isinstance(width, int), \
-            "Make sure the border width is an int."
+        _check_type(width, "width", int)
+
         self._border_width = width
-        self._window._canvas.itemconfigure(self._tag, width=width)
+
+        if self._enabled:
+            self._window._canvas.itemconfigure(self._tag, width=width)
 
     ## Sets the fill color.
     # @param color - string - Can be either the
     # name of a color ("yellow"), or a hex code ("#FFFF00")
     def set_fill_color(self, color):
         # type checking
-        assert isinstance(color, str), \
-            "Make sure the fill color is a string."
+        _check_type(color, "color", str)
+        
         self._fill_color = color
-        self._window._canvas.itemconfigure(self._tag, fill=color)
 
+        if self._enabled:
+            self._window._canvas.itemconfigure(self._tag, fill=color)
+        
     ## Sets the pivot point.
     # @param pivot - tuple of (int * int)
     def set_pivot(self, pivot):
         # type checking
-        assert isinstance(pivot, tuple) and len(pivot) == 2 and \
-            isinstance(pivot[0], int) and isinstance(pivot[1], int), \
-            "Make sure the pivot is a tuple of (int * int)."
+        if not _is_point(pivot):
+            raise TypeError("\nThe parameter 'pivot' should be a " +
+                            "tuple of (int * int) but instead was a " +
+                            str(type(pivot).__name__) + "\n" +
+                            "pivot = " + str(pivot))
+
         self._pivot = pivot
+
+    def _add(self):
+        if not self._enabled:
+            self._tag = self._window._canvas.create_polygon(
+                *self._points,
+                width=self.get_border_width(),
+                fill=self.get_fill_color(),
+                outline=self.get_border_color())
+
+            self._update_graphic_list()
+            # self._window._graphics.append([self._depth, self._tag, self])
+            
+            self._enabled = True
 
 
 # Aids in rotation.
 def _rotate_helper(point, angle, pivot):
-    # type checking
-    # print("DEBUG: point = " + str(point) + ", angle = " + str(angle) + ", pivot = " + str(pivot))
-    assert isinstance(point, tuple) and len(point) == 2 and \
-        isinstance(angle, float) and isinstance(pivot, tuple) and \
-        len(pivot) == 2 and isinstance(point[0], int) and \
-        isinstance(point[1], int) and isinstance(pivot[0], int) and \
-        isinstance(pivot[1], int), \
-        "Make sure point is a tuple of (int * int), angle is a float, " + \
-        "and pivot is a tuple of (int * int)."
     point = (point[0] - pivot[0], point[1] - pivot[1])
     newX = round(point[0] * math.cos(angle) + point[1] * math.sin(angle))
     newY = round(point[1] * math.cos(angle) - point[0] * math.sin(angle))
@@ -1030,11 +1174,11 @@ class Text(GraphicalObject):
             "Make sure the window is a Window, the size is an int, and " + \
             "the center is a tuple of (int * int)."
         # for inheritance
-        GraphicalObject.__init__(self)
+        GraphicalObject.__init__(self, window = window, center = center)
         # setting variables, creating object and adding it to window._graphics
-        self._window = window
+        # self._window = window
         self._text = text
-        self._center = center
+        # self._center = center
         self._size = size
         self._enabled = False
         self._tag = self._window._canvas.create_text(self._center[0],
@@ -1111,41 +1255,30 @@ class Polygon(Fillable):
     # @param points - list of tuples of (int * int) - each tuple corresponds
     # to an x-y point
     def __init__(self, window, points):
-        # type checking
-        assert isinstance(window, Window) and isinstance(points, list), \
-            "Make sure window is a Window and points is a list of tuples " + \
-            "of (int * int)."
-        # checking whether each point in the list of points is a tuple of
-        # length 2
-        for point in points:
-            if len(point) is not 2 or type(point[0]) != int or \
-               type(point[1]) != int:
-                raise AssertionError("One of the points in your polygon " +
-                                     "does not have a length of two." +
-                                     "Make sure every tuple in your list " +
-                                     "has a length of two.")
+        center = _list_average(points)
+        
         # establishing inheritance
-        Fillable.__init__(self)
+        Fillable.__init__(self,
+                          window = window,
+                          center = center,
+                          points = points,
+                          pivot = center)
+        
         # setting all variables, creating object, and adding it to
         # window._graphics
-        self._window = window
-        self._points = points
-        self._center = _list_average(self._points)
-        self._pivot = self._center
-        self._enabled = False
-        self._tag = self._window._canvas.create_polygon(
-            *self._points,
-            width=self.get_border_width(),
-            fill=self.get_fill_color(),
-            outline=self.get_border_color(),
-            state=HIDDEN
-        )
-        self._window._graphics.append([self._depth, self._tag, self])
+        # self._tag = self._window._canvas.create_polygon(
+        #     *self._points,
+        #     width=self.get_border_width(),
+        #     fill=self.get_fill_color(),
+        #     outline=self.get_border_color(),
+        #     state=HIDDEN
+        # )
+        # self._window._graphics.append([self._depth, self._tag, self])
 
     # Adds a graphical object to the canvas.
-    def _add_to(self):
-        self._window._canvas.itemconfigure(self._tag, state=NORMAL)
-        self._enabled = True
+    # def _add_to(self):
+    #     self._window._canvas.itemconfigure(self._tag, state=NORMAL)
+    #     self._enabled = True
 
 
 # Averages each x value and each y value in the list and returns it.
@@ -1155,11 +1288,20 @@ def _list_average(points):
     # the points are turned into a list of ints, then each even one is put into
     # its own list and each odd one is put into its own list and then both are
     # summed, divided, and put into a tuple and returned
-    points = [i[j] for i in points for j in range(len(i))]
-    pointsX = points[0:len(points):2]
-    pointsY = points[1:len(points):2]
-    return (int(sum(pointsX) / len(pointsX)),
-            int(sum(pointsY) / len(pointsY)))
+    # points = [i[j] for i in points for j in range(len(i))]
+    # pointsX = points[0:len(points):2]
+    # pointsY = points[1:len(points):2]
+
+    x_sum = 0
+    y_sum = 0
+    for i in range(len(points)):
+        x_sum += points[i][0]
+        y_sum += points[i][1]
+
+    return (round(x_sum / len(points)),
+            round(y_sum / len(points)))
+    # return (int(sum(pointsX) / len(pointsX)),
+            # int(sum(pointsY) / len(pointsY)))
 
 
 #-------------------------------------------------------------------------------
@@ -1353,60 +1495,65 @@ class Square(Fillable):
     # the center of the square
     def __init__(self, window, side_length=80, center=(200, 200)):
         # type checking
-        assert isinstance(window, Window) and isinstance(side_length, int) \
-            and isinstance(center, tuple) and len(center) == 2 and \
-            isinstance(center[0], int) and isinstance(center[1], int), \
-            "Make sure window is a window, the side length is an int, " + \
-            "and the center is a tuple of (int * int)."
+
+        _check_type(side_length, "side_length", int)
+        
+        self._side_length = side_length
+        points = [(center[0] - side_length // 2,
+                   center[1] - side_length // 2),
+                  (center[0] + side_length // 2,
+                   center[1] - side_length // 2),
+                  (center[0] + side_length // 2,
+                   center[1] + side_length // 2),
+                  (center[0] - side_length // 2,
+                   center[1] + side_length // 2)]
+        
         # setting inheritance
-        Fillable.__init__(self)
+        Fillable.__init__(self,
+                          window = window,
+                          center = center,
+                          points = points,
+                          pivot = center)
         # setting variables
-        self._window = window
-        self._width = side_length
-        self._height = side_length
-        self._center = center
-        # creating points and then adding object to the canvas and
-        # window._graphics
-        self._points = [(self._center[0] - self._width // 2,
-                         self._center[1] - self._height // 2),
-                        (self._center[0] + self._width // 2,
-                         self._center[1] - self._height // 2),
-                        (self._center[0] + self._width // 2,
-                         self._center[1] + self._height // 2),
-                        (self._center[0] - self._width // 2,
-                         self._center[1] + self._height // 2)]
-        self._enabled = False
-        self._tag = self._window._canvas.create_polygon(
-            *self._points,
-            width=self.get_border_width(),
-            fill=self.get_fill_color(),
-            outline=self.get_border_color(),
-            state=HIDDEN
-        )
-        self._window._graphics.append([self._depth, self._tag, self])
+        # self._window = window
+        # self._width = side_length
+        # self._height = side_length
+        # self._center = center
+        # # creating points and then adding object to the canvas and
+        # # window._graphics
+        # self._points = [(self._center[0] - self._width // 2,
+        #                  self._center[1] - self._height // 2),
+        #                 (self._center[0] + self._width // 2,
+        #                  self._center[1] - self._height // 2),
+        #                 (self._center[0] + self._width // 2,
+        #                  self._center[1] + self._height // 2),
+        #                 (self._center[0] - self._width // 2,
+        #                  self._center[1] + self._height // 2)]
+        # self._enabled = False
+        # self._tag = self._window._canvas.create_polygon(
+        #     *self._points,
+        #     width=self.get_border_width(),
+        #     fill=self.get_fill_color(),
+        #     outline=self.get_border_color(),
+        #     state=HIDDEN
+        # )
+        # self._window._graphics.append([self._depth, self._tag, self])
 
     # Adds a graphical object to the canvas.
-    def _add_to(self):
-        self._window._canvas.itemconfigure(self._tag, state=NORMAL)
-        self._enabled = True
+    # def _add_to(self):
+    #     self._window._canvas.itemconfigure(self._tag, state=NORMAL)
+    #     self._enabled = True
 
     ## Sets the side length of the Square.
     # @param side_length - int
     def set_side_length(self, side_length):
         # type checking
-        assert isinstance(side_length, int)
-        self._width = side_length
-        self._height = side_length
-        # re-rendering each point
-        self._points = [(self._center[0] - self._width // 2,
-                         self._center[1] - self._height // 2),
-                        (self._center[0] + self._width // 2,
-                         self._center[1] - self._height // 2),
-                        (self._center[0] + self._width // 2,
-                         self._center[1] + self._height // 2),
-                        (self._center[0] - self._width // 2,
-                         self._center[1] + self._height // 2)]
-        self._refresh()
+        _check_type(side_length, "side_length", int)
+
+        # equivalent to scale
+        self.scale(side_length / self._side_length)
+
+        self._side_length = side_length
 
 #-------------------------------------------------------------------------------
 #
@@ -1479,7 +1626,7 @@ class Rectangle(Fillable):
                          self._center[1] + self._height / 2),
                         (self._center[0] - self._width / 2,
                          self._center[1] + self._height / 2)]
-        self._refresh()
+        self._window.refresh(start=self)
 
 #-------------------------------------------------------------------------------
 #
