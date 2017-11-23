@@ -569,6 +569,9 @@ class EventHandler:
         pass
 
     ## Handles a mouse press.
+    # @bug GraphicalObjects may not update correctly if moved or modified
+    # within this method. You can use this for setting variables, though.
+    #
     # This is called by the system when a mouse button is pressed while the
     # mouse is on the GraphicalObject that this handler is an event handler for.
     # The event parameter can be used to determine the location at which the
@@ -939,6 +942,7 @@ class Fillable(GraphicalObject):
         self._center = temp_center
         self._window.refresh(start=self)
 
+    # moves all of the points in the graphic
     def _move_graphic(self, dx, dy):
         for i in range(len(self._points)):
             self._points[i] = (self._points[i][0] + dx,
@@ -1159,7 +1163,7 @@ class Text(GraphicalObject):
     def _move_graphic(self, dx, dy):
         pass
 
-    ## Sets the point size of the text.
+    ## Sets the font size of the text.
     # @param size - int
     def set_size(self, size):
         _check_type(size, "size", int)
