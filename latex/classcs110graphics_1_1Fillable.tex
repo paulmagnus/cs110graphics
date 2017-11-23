@@ -26,10 +26,6 @@ def \hyperlink{classcs110graphics_1_1Fillable_afa6710f6c314de39d19f06d9dd306d7d}
 \begin{DoxyCompactList}\small\item\em Rotates the object. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1Fillable_a80d5b6b6d2ebae867dccecb803075749}{scale}
 \begin{DoxyCompactList}\small\item\em Scales the object up or down depending on the factor. \item\end{DoxyCompactList}\item 
-def \hyperlink{classcs110graphics_1_1Fillable_ae8f6c476e29c0810453dc16948e1730c}{move}
-\begin{DoxyCompactList}\small\item\em Moves the object dx pixels horizontally and dy pixels vertically. \item\end{DoxyCompactList}\item 
-def \hyperlink{classcs110graphics_1_1Fillable_adcabc14e76d1160ff591b9ef7f3d6a97}{move\_\-to}
-\begin{DoxyCompactList}\small\item\em Moves a graphical object to a point. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1Fillable_a2f830be5d970faac97759910d20d68a4}{set\_\-border\_\-color}
 \begin{DoxyCompactList}\small\item\em Sets the border color. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1Fillable_a09f05462cb2ed38fdccb244340f05b2b}{set\_\-border\_\-width}
@@ -44,6 +40,10 @@ def \hyperlink{classcs110graphics_1_1GraphicalObject_a062789c4cc9de38af32dcc4ff2
 \begin{DoxyCompactList}\small\item\em Returns the center of the object. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1GraphicalObject_a6d9f5718cd0cf249e0d2842971bae17f}{get\_\-depth}
 \begin{DoxyCompactList}\small\item\em Returns the depth of the object. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}{move}
+\begin{DoxyCompactList}\small\item\em Moves the object dx pixels horizontally and dy pixels vertically. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}{move\_\-to}
+\begin{DoxyCompactList}\small\item\em Moves a graphical object to a point. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1GraphicalObject_a20d76d4ee4419c3065d61deb6cbc6700}{set\_\-depth}
 \begin{DoxyCompactList}\small\item\em Sets the depth of the \hyperlink{classcs110graphics_1_1GraphicalObject}{GraphicalObject}. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -130,31 +130,27 @@ color -\/ int -\/ Can be either the name of a color (\char`\"{}yellow\char`\"{})
 Returns the pivot point. \begin{DoxyReturn}{Returns}
 pivot -\/ tuple (int $\ast$ int) 
 \end{DoxyReturn}
-\hypertarget{classcs110graphics_1_1Fillable_ae8f6c476e29c0810453dc16948e1730c}{
+\hypertarget{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}{
 \index{cs110graphics::Fillable@{cs110graphics::Fillable}!move@{move}}
 \index{move@{move}!cs110graphics::Fillable@{cs110graphics::Fillable}}
-\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.Fillable.move ( {\em self}, \/   {\em dx}, \/   {\em dy})}}
-\label{classcs110graphics_1_1Fillable_ae8f6c476e29c0810453dc16948e1730c}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.move ( {\em self}, \/   {\em dx}, \/   {\em dy})\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}
+\label{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}
 
 
 Moves the object dx pixels horizontally and dy pixels vertically. 
 \begin{DoxyParams}{Parameters}
 \item[{\em dx}]-\/ int \item[{\em dy}]-\/ int \end{DoxyParams}
-
-
-Reimplemented from \hyperlink{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}{cs110graphics.GraphicalObject}.\hypertarget{classcs110graphics_1_1Fillable_adcabc14e76d1160ff591b9ef7f3d6a97}{
+\hypertarget{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}{
 \index{cs110graphics::Fillable@{cs110graphics::Fillable}!move\_\-to@{move\_\-to}}
 \index{move\_\-to@{move\_\-to}!cs110graphics::Fillable@{cs110graphics::Fillable}}
-\subsubsection[{move\_\-to}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.Fillable.move\_\-to ( {\em self}, \/   {\em point})}}
-\label{classcs110graphics_1_1Fillable_adcabc14e76d1160ff591b9ef7f3d6a97}
+\subsubsection[{move\_\-to}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.move\_\-to ( {\em self}, \/   {\em point})\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}
+\label{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}
 
 
 Moves a graphical object to a point. 
 \begin{DoxyParams}{Parameters}
 \item[{\em point}]-\/ tuple of (int $\ast$ int) \end{DoxyParams}
-
-
-Reimplemented from \hyperlink{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}{cs110graphics.GraphicalObject}.\hypertarget{classcs110graphics_1_1Fillable_afa6710f6c314de39d19f06d9dd306d7d}{
+\hypertarget{classcs110graphics_1_1Fillable_afa6710f6c314de39d19f06d9dd306d7d}{
 \index{cs110graphics::Fillable@{cs110graphics::Fillable}!rotate@{rotate}}
 \index{rotate@{rotate}!cs110graphics::Fillable@{cs110graphics::Fillable}}
 \subsubsection[{rotate}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.Fillable.rotate ( {\em self}, \/   {\em degrees})}}
@@ -164,7 +160,9 @@ Reimplemented from \hyperlink{classcs110graphics_1_1GraphicalObject_abe2d480265d
 Rotates the object. 
 \begin{DoxyParams}{Parameters}
 \item[{\em degrees}]-\/ int \end{DoxyParams}
-\hypertarget{classcs110graphics_1_1Fillable_a80d5b6b6d2ebae867dccecb803075749}{
+
+
+Reimplemented in \hyperlink{classcs110graphics_1_1Circle_a0532651c10c084766ac3032c57107eb0}{cs110graphics.Circle}, and \hyperlink{classcs110graphics_1_1Oval_a98bb8103f19d2df5a875db6943fde6e2}{cs110graphics.Oval}.\hypertarget{classcs110graphics_1_1Fillable_a80d5b6b6d2ebae867dccecb803075749}{
 \index{cs110graphics::Fillable@{cs110graphics::Fillable}!scale@{scale}}
 \index{scale@{scale}!cs110graphics::Fillable@{cs110graphics::Fillable}}
 \subsubsection[{scale}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.Fillable.scale ( {\em self}, \/   {\em factor})}}
@@ -174,7 +172,9 @@ Rotates the object.
 Scales the object up or down depending on the factor. 
 \begin{DoxyParams}{Parameters}
 \item[{\em factor}]-\/ float \end{DoxyParams}
-\hypertarget{classcs110graphics_1_1Fillable_a2f830be5d970faac97759910d20d68a4}{
+
+
+Reimplemented in \hyperlink{classcs110graphics_1_1Circle_a9ffed9eb3f191fafadd5b2d7e7735c18}{cs110graphics.Circle}, and \hyperlink{classcs110graphics_1_1Oval_accf5ef95d1127e0abe9f09823051d75f}{cs110graphics.Oval}.\hypertarget{classcs110graphics_1_1Fillable_a2f830be5d970faac97759910d20d68a4}{
 \index{cs110graphics::Fillable@{cs110graphics::Fillable}!set\_\-border\_\-color@{set\_\-border\_\-color}}
 \index{set\_\-border\_\-color@{set\_\-border\_\-color}!cs110graphics::Fillable@{cs110graphics::Fillable}}
 \subsubsection[{set\_\-border\_\-color}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.Fillable.set\_\-border\_\-color ( {\em self}, \/   {\em color})}}

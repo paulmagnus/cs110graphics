@@ -16,10 +16,6 @@ Inheritance diagram for cs110graphics.Text::\begin{figure}[H]
 \item 
 def \hyperlink{classcs110graphics_1_1Text_a022ce78a2945edbd8dfe3c4498769a62}{\_\-\_\-init\_\-\_\-}
 \item 
-def \hyperlink{classcs110graphics_1_1Text_a6bd6f174fc82f2225a4d162ca6b90ec2}{move}
-\begin{DoxyCompactList}\small\item\em Moves the object dx pixels horizontally and dy pixels vertically. \item\end{DoxyCompactList}\item 
-def \hyperlink{classcs110graphics_1_1Text_a615a76c8d2edd6c6af5d39d4e2577a27}{move\_\-to}
-\begin{DoxyCompactList}\small\item\em Moves a graphical object to a point. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1Text_ad470aa26235fc2f5f1459c3750251207}{set\_\-size}
 \begin{DoxyCompactList}\small\item\em Sets the point size of the text. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1Text_ab12aa7478ca6a2b2015b7e8544674c73}{set\_\-text}
@@ -30,6 +26,10 @@ def \hyperlink{classcs110graphics_1_1GraphicalObject_a062789c4cc9de38af32dcc4ff2
 \begin{DoxyCompactList}\small\item\em Returns the center of the object. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1GraphicalObject_a6d9f5718cd0cf249e0d2842971bae17f}{get\_\-depth}
 \begin{DoxyCompactList}\small\item\em Returns the depth of the object. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}{move}
+\begin{DoxyCompactList}\small\item\em Moves the object dx pixels horizontally and dy pixels vertically. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}{move\_\-to}
+\begin{DoxyCompactList}\small\item\em Moves a graphical object to a point. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1GraphicalObject_a20d76d4ee4419c3065d61deb6cbc6700}{set\_\-depth}
 \begin{DoxyCompactList}\small\item\em Sets the depth of the \hyperlink{classcs110graphics_1_1GraphicalObject}{GraphicalObject}. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -46,7 +46,9 @@ def \hyperlink{classcs110graphics_1_1GraphicalObject_a20d76d4ee4419c3065d61deb6c
 
 \begin{DoxyParams}{Parameters}
 \item[{\em window}]-\/ \hyperlink{classcs110graphics_1_1Window}{Window} -\/ the window which the object will be added to \item[{\em text}]-\/ str -\/ The text which is displayed \item[{\em size}]-\/ int -\/ {\bfseries (default: 12)} sets the size of the text \item[{\em center}]-\/ tuple of int $\ast$ int -\/ {\bfseries (default: (200, 200))} sets the center of the \hyperlink{classcs110graphics_1_1Image}{Image} \end{DoxyParams}
-\hypertarget{classcs110graphics_1_1GraphicalObject_adb1af0d5a6baae3f9a08d21a3227c49f}{
+
+
+Reimplemented from \hyperlink{classcs110graphics_1_1GraphicalObject}{cs110graphics.GraphicalObject}.\hypertarget{classcs110graphics_1_1GraphicalObject_adb1af0d5a6baae3f9a08d21a3227c49f}{
 \index{cs110graphics::Text@{cs110graphics::Text}!add\_\-handler@{add\_\-handler}}
 \index{add\_\-handler@{add\_\-handler}!cs110graphics::Text@{cs110graphics::Text}}
 \subsubsection[{add\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.add\_\-handler ( {\em self}, \/   {\em handler\_\-object})\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}
@@ -76,31 +78,27 @@ center -\/ tuple
 Returns the depth of the object. \begin{DoxyReturn}{Returns}
 depth -\/ int 
 \end{DoxyReturn}
-\hypertarget{classcs110graphics_1_1Text_a6bd6f174fc82f2225a4d162ca6b90ec2}{
+\hypertarget{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}{
 \index{cs110graphics::Text@{cs110graphics::Text}!move@{move}}
 \index{move@{move}!cs110graphics::Text@{cs110graphics::Text}}
-\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.Text.move ( {\em self}, \/   {\em dx}, \/   {\em dy})}}
-\label{classcs110graphics_1_1Text_a6bd6f174fc82f2225a4d162ca6b90ec2}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.move ( {\em self}, \/   {\em dx}, \/   {\em dy})\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}
+\label{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}
 
 
 Moves the object dx pixels horizontally and dy pixels vertically. 
 \begin{DoxyParams}{Parameters}
 \item[{\em dx}]-\/ int \item[{\em dy}]-\/ int \end{DoxyParams}
-
-
-Reimplemented from \hyperlink{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}{cs110graphics.GraphicalObject}.\hypertarget{classcs110graphics_1_1Text_a615a76c8d2edd6c6af5d39d4e2577a27}{
+\hypertarget{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}{
 \index{cs110graphics::Text@{cs110graphics::Text}!move\_\-to@{move\_\-to}}
 \index{move\_\-to@{move\_\-to}!cs110graphics::Text@{cs110graphics::Text}}
-\subsubsection[{move\_\-to}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.Text.move\_\-to ( {\em self}, \/   {\em point})}}
-\label{classcs110graphics_1_1Text_a615a76c8d2edd6c6af5d39d4e2577a27}
+\subsubsection[{move\_\-to}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.move\_\-to ( {\em self}, \/   {\em point})\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}
+\label{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}
 
 
 Moves a graphical object to a point. 
 \begin{DoxyParams}{Parameters}
 \item[{\em point}]-\/ tuple of (int $\ast$ int) \end{DoxyParams}
-
-
-Reimplemented from \hyperlink{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}{cs110graphics.GraphicalObject}.\hypertarget{classcs110graphics_1_1GraphicalObject_a20d76d4ee4419c3065d61deb6cbc6700}{
+\hypertarget{classcs110graphics_1_1GraphicalObject_a20d76d4ee4419c3065d61deb6cbc6700}{
 \index{cs110graphics::Text@{cs110graphics::Text}!set\_\-depth@{set\_\-depth}}
 \index{set\_\-depth@{set\_\-depth}!cs110graphics::Text@{cs110graphics::Text}}
 \subsubsection[{set\_\-depth}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.set\_\-depth ( {\em self}, \/   {\em depth})\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}

@@ -41,16 +41,6 @@ from PIL import ImageTk as itk  # for Image class
 #
 #-------------------------------------------------------------------------------
 
-# If this exception is thrown, something is wrong with the graphics
-# package.
-class CS110Exception(Exception):
-    def __init__(self, value):
-        self.parameter = value
-
-    def __str__(self):
-        return "Error: " + repr(self.parameter) + "\n" + \
-            "This is a bug in the cs110graphics system."
-
 # Verifies that param has the same type as target_type
 # If not, then a TypeError is raised
 def _check_type(param, param_name, target_type):
@@ -150,11 +140,14 @@ class Window:
         # set up key event handling
         self._bind_handlers()
 
+        self._start_depth = None
+        self._needs_refresh = False
+
         if first_function is not None:
             # running first function
             self._first_function(self)
             # display graphics when done
-            self.refresh()
+            self._refresh()
 
     # This controls the Tkinter integration of event handlers
     # Key events are handled at the Window/Canvas level
@@ -174,12 +167,14 @@ class Window:
     def _key_press(self, event):
         for graphic in self._graphics:
             graphic[2]._key_press(event)
+        self._refresh()
 
     # Key release is bound at the canvas level
     # This then calls each graphic's _key_release method
     def _key_release(self, event):
         for graphic in self._graphics:
             graphic[2]._key_release(event)
+        self._refresh()
 
     ## Adds an object to the Window.
     # @param graphic - GraphicalObject
@@ -190,7 +185,7 @@ class Window:
         # deferring to each object since each object requires a different
         # method of construction
         graphic._enabled = True
-        # self.refresh(start=graphic)
+        self.refresh(start=graphic)
 
     ## Removes an object from the Window.
     # @param graphic - GraphicalObject
@@ -247,43 +242,43 @@ class Window:
         self._width = width
         self._canvas.configure(width=width)
 
-    # I think this is deprecated
-    # Whenever an object is updated through external functions, its tag is
-    # overwritten. This function goes into self._graphics and replaces the old
-    # tag with a newer one, as well as replacing its depth with a newer one.
-    def _update_tag(self, graphic):
-        try:
-            _check_type(graphic, "graphic", GraphicalObject)
-        except TypeError as instance:
-            raise CS110Exception(str(instance))
-
-        # goes through every item in self._graphics, then saves the object's
-        # tag and depth if it's found
-        for item in self._graphics:
-            if item[2] == graphic:
-                item[1] = graphic._tag
-                item[0] = graphic._depth
-
     ## Refreshes all objects in the window.
     # All objects are redrawn in depth order.
     # @param start - GraphicalObject - <b>(default: None)</b> only objects with
     # the same or equal depth to this object are refreshed.
     def refresh(self, start = None):
-        print("Refreshing the window")
-        if start is not None:
-            _check_type(start, "start", GraphicalObject)
-            start_depth = start.get_depth()
-        else:
-            start_depth = None
-            
-        self._graphics.sort(key=lambda g: g[0])
+        print("We need a refresh")
+        self._needs_refresh = True
+
+        # done if no start object was given
+        if start == None:
+            return
+
+        _check_type(start, "start", GraphicalObject)
         
-        for graphic in reversed(self._graphics):
-            # graphic[0] is the object's depth
-            if (start_depth is None or
-                graphic[0] <= start_depth):
-                # refresh the graphic
-                graphic[2]._refresh()
+        # update start depth
+        if (self._start_depth is None or
+            start.get_depth() > self._start_depth):
+            self._start_depth = start.get_depth()
+
+    # This is called when the system pauses for a moment and is ready to
+    # refresh the window. This will only refresh objects that need to be
+    # refreshed based on the last call to the function refresh above and
+    # the depth of the objects in the window.
+    def _refresh(self):
+        if self._needs_refresh:
+            print("Refreshing window")
+            self._graphics.sort(key=lambda g : g[0])
+
+            for graphic in reversed(self._graphics):
+                # graphic[0] is the object's depth
+                if (self._start_depth is None or
+                    graphic[0] <= self._start_depth):
+                    # refresh the graphic
+                    graphic[2]._refresh()
+            
+            self._needs_refresh = False
+            self._start_depth = None
 
 
 #-------------------------------------------------------------------------------
@@ -531,6 +526,10 @@ class EventHandler:
         pass
 
     ## Handles when a mouse enters an object.
+    # @bug Overrides of this method is likely to be called more often than
+    # expected and many GraphicalObject methods will not work correctly with
+    # when called within the method, avoid using this if possible.
+    #
     # This is called by the system when the mouse enters the GraphicalObject
     # that this handler is an event handler for. The event parameter can be used
     # to determine the location at which the mouse entered the object.
@@ -713,37 +712,38 @@ class GraphicalObject:
             tkEvent = Event(event)
             for handler_object in self._handlers:
                 _call_handler(handler_object.handle_mouse_enter, tkEvent)
-            # This creates infinite recursion
-            # self._window.refresh()
+            # This creates infinite recursion since when an object is added
+            # under the mouse pointer, mouse enter is called
+            # self._window._refresh()
 
     def _mouse_leave(self, event):
         if self._enabled:
             tkEvent = Event(event)
             for handler_object in self._handlers:
                 _call_handler(handler_object.handle_mouse_leave, tkEvent)
-            self._window.refresh()
+            self._window._refresh()
 
     def _mouse_move(self, event):
         if self._enabled:
             tkEvent = Event(event)
             for handler_object in self._handlers:
                 _call_handler(handler_object.handle_mouse_move, tkEvent)
-            self._window.refresh()
+            self._window._refresh()
 
     def _mouse_press(self, event):
         if self._enabled:
             tkEvent = Event(event)
             for handler_object in self._handlers:
                 _call_handler(handler_object.handle_mouse_press, tkEvent)
-            # for some reason, this breaks the event system
-            # self._window.refresh()
+            # for some reason, this breaks the mouse release handler
+            # self._window._refresh()
 
     def _mouse_release(self, event):
         if self._enabled:
             tkEvent = Event(event)
             for handler_object in self._handlers:
                 _call_handler(handler_object.handle_mouse_release, tkEvent)
-            self._window.refresh()
+            self._window._refresh()
 
     ## Returns the center of the object.
     # @return center - tuple
@@ -770,7 +770,7 @@ class GraphicalObject:
                            self._pivot[1] + dy)
 
         # refresh all objects to keep depth correct
-        # self._window.refresh(start=self)
+        self._window.refresh(start=self)
 
     ## Moves a graphical object to a point.
     # @param point - tuple of (int * int)
@@ -794,7 +794,7 @@ class GraphicalObject:
                            self._pivot[1] + dy)
         
         # refresh all objects to keep depth correct
-        # self._window.refresh(start=self)
+        self._window.refresh(start=self)
 
     def _move_graphic(self, dx, dy):
         raise NotImplementedError
@@ -831,7 +831,7 @@ class GraphicalObject:
         # self._window._graphics.sort()
 
         # get rid of all objects and readd them in depth order
-        # self._window.refresh(start=self)
+        self._window.refresh(start=self)
 
     # Hopefully with list aliasing, this updates the list in window
     def _update_graphic_list(self):
@@ -915,6 +915,8 @@ class Fillable(GraphicalObject):
                                              radians,
                                              self._pivot)
 
+        self._window.refresh(start=self)
+
     ## Scales the object up or down depending on the factor.
     # @param factor - float
     def scale(self, factor):
@@ -935,7 +937,7 @@ class Fillable(GraphicalObject):
 
         self.move_to(temp_center)
         self._center = temp_center
-        # self._window.refresh(start=self)
+        self._window.refresh(start=self)
 
     def _move_graphic(self, dx, dy):
         for i in range(len(self._points)):
@@ -998,7 +1000,6 @@ class Fillable(GraphicalObject):
                 outline=self.get_border_color())
 
             self._update_graphic_list()
-            # self._window._graphics.append([self._depth, self._tag, self])
             
             self._enabled = True
 
@@ -1086,6 +1087,7 @@ class Image(GraphicalObject):
 
         self._width = width
         self._height = height
+        self._window.refresh(start=self)
 
     ## Rotates an object.
     # @param degrees - int
@@ -1093,6 +1095,7 @@ class Image(GraphicalObject):
         _check_type(degrees, "degrees", int)
         
         self._degrees = (self._degrees + degrees) % 360
+        self._window.refresh(start=self)
 
     ## Scales the image according to the factor.
     # @param factor - float
@@ -1101,6 +1104,7 @@ class Image(GraphicalObject):
         
         self._width = int(self._width * factor)
         self._height = int(self._height * factor)
+        self._window.refresh(start=self)
 
     ## Returns a tuple of the width and height of the image.
     # @return size - tuple of (int * int)
@@ -1152,8 +1156,6 @@ class Text(GraphicalObject):
             self._update_graphic_list()
             self._enabled = True
 
-        self._window._update_tag(self)
-
     def _move_graphic(self, dx, dy):
         pass
 
@@ -1163,6 +1165,7 @@ class Text(GraphicalObject):
         _check_type(size, "size", int)
         
         self._size = size
+        self._window.refresh(start=self)
 
     ## Sets the text.
     # @param text - str
@@ -1170,6 +1173,7 @@ class Text(GraphicalObject):
         _check_type(text, "text", str)
         
         self._text = text
+        self._window.refresh(start=self)
 
 
 #-------------------------------------------------------------------------------
@@ -1244,6 +1248,7 @@ class Circle(Fillable):
         self._center = _rotate_helper(self._center,
                                       degrees * math.pi / 180,
                                       self._pivot)
+        self._window.refresh(start=self)
 
     # Scales the circle by the given factor around the center
     def scale(self, factor):
@@ -1251,6 +1256,7 @@ class Circle(Fillable):
         _check_type(factor, "factor", float)
 
         self._radius = self._radius * factor
+        self._window.refresh(start=self)
 
     def _move_graphic(self, dx, dy):
         # GraphicalObject already moves center and pivot
@@ -1279,6 +1285,7 @@ class Circle(Fillable):
         # type checking
         _check_type(radius, "radius", int)
         self._radius = radius
+        self._window.refresh(start=self)
         
         
 #-------------------------------------------------------------------------------
@@ -1314,6 +1321,7 @@ class Oval(Fillable):
 
         self._radiusX = radiusX
         self._radiusY = radiusY
+        self._window.refresh(start=self)
 
     # overwrite
     # rotating an oval efficiently works differently
@@ -1324,6 +1332,7 @@ class Oval(Fillable):
         self._center = _rotate_helper(self._center,
                                       degrees * math.pi / 180.0,
                                       self._pivot)
+        self._window.refresh(start=self)
 
     # overwrite
     # scaling an oval works differently
@@ -1332,6 +1341,7 @@ class Oval(Fillable):
 
         self._radiusX = round(self._radiusX * factor)
         self._radiusY = round(self._radiusY * factor)
+        self._window.refresh(start=self)
 
     def _move_graphic(self, dx, dy):
         pass
@@ -1414,6 +1424,7 @@ class Square(Fillable):
         self.scale(side_length / self._side_length)
 
         self._side_length = side_length
+        self._window.refresh(start=self)
 
 #-------------------------------------------------------------------------------
 #
@@ -1470,7 +1481,7 @@ class Rectangle(Fillable):
                          self._center[1] + self._height // 2),
                         (self._center[0] - self._width // 2,
                          self._center[1] + self._height // 2)]
-        # self._window.refresh(start=self)
+        self._window.refresh(start=self)
 
 #-------------------------------------------------------------------------------
 #
@@ -1513,7 +1524,7 @@ class Timer:
     ## Starts the timer.
     def start(self):
         self._func()
-        self._window.refresh()
+        self._window._refresh()
         self._tag = self._window._root.after(self._interval, self.start)
 
     ## Stops the timer.
@@ -1578,7 +1589,7 @@ class _RunWithYieldDelay:
             delay = -1
 
         # update the window
-        self._window.refresh()
+        self._window._refresh()
 
         if delay >= 0:
             self._tag = self._window._root.after(delay, self._run)

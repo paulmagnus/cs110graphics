@@ -13,7 +13,7 @@ def \hyperlink{classcs110graphics_1_1Window_af926549e3d731847886302fa390f2863}{\
 def \hyperlink{classcs110graphics_1_1Window_a34064de02d5149841a23764e78085d18}{add}
 \begin{DoxyCompactList}\small\item\em Adds an object to the \hyperlink{classcs110graphics_1_1Window}{Window}. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1Window_a14aba875d32f8a70a0c5a80ac3f18a92}{remove}
-\begin{DoxyCompactList}\small\item\em Removes an object from the \hyperlink{classcs110graphics_1_1Window}{Window} object, assuming the object being deleted exists. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Removes an object from the \hyperlink{classcs110graphics_1_1Window}{Window}. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1Window_a2ab7070110bd58c95e8f29c10d71c7cc}{get\_\-height}
 \begin{DoxyCompactList}\small\item\em Returns the height of the window as an integer. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1Window_a41d27bb09f5033f0596af9f1a3a9b519}{get\_\-width}
@@ -25,7 +25,9 @@ def \hyperlink{classcs110graphics_1_1Window_a9b548549f8f09ca3f29e6e80483e21d2}{s
 def \hyperlink{classcs110graphics_1_1Window_a227c806c2acbcaca9958ba3b610a85f6}{set\_\-title}
 \begin{DoxyCompactList}\small\item\em Sets the title of the window holding the canvas. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1Window_a55036373bfb4437eb4368a39fedb8722}{set\_\-width}
-\begin{DoxyCompactList}\small\item\em Sets the width of the canvas. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets the width of the canvas. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1Window_a683be16067bd2cfe72b14b421b7ba535}{refresh}
+\begin{DoxyCompactList}\small\item\em Refreshes all objects in the window. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -73,6 +75,16 @@ height -\/ int
 Returns the width of the window as an integer. \begin{DoxyReturn}{Returns}
 width -\/ int 
 \end{DoxyReturn}
+\hypertarget{classcs110graphics_1_1Window_a683be16067bd2cfe72b14b421b7ba535}{
+\index{cs110graphics::Window@{cs110graphics::Window}!refresh@{refresh}}
+\index{refresh@{refresh}!cs110graphics::Window@{cs110graphics::Window}}
+\subsubsection[{refresh}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.Window.refresh ( {\em self}, \/   {\em start} = {\ttfamily None})}}
+\label{classcs110graphics_1_1Window_a683be16067bd2cfe72b14b421b7ba535}
+
+
+Refreshes all objects in the window. All objects are redrawn in depth order. 
+\begin{DoxyParams}{Parameters}
+\item[{\em start}]-\/ \hyperlink{classcs110graphics_1_1GraphicalObject}{GraphicalObject} -\/ {\bfseries (default: None)} only objects with the same or equal depth to this object are refreshed. \end{DoxyParams}
 \hypertarget{classcs110graphics_1_1Window_a14aba875d32f8a70a0c5a80ac3f18a92}{
 \index{cs110graphics::Window@{cs110graphics::Window}!remove@{remove}}
 \index{remove@{remove}!cs110graphics::Window@{cs110graphics::Window}}
@@ -80,7 +92,7 @@ width -\/ int
 \label{classcs110graphics_1_1Window_a14aba875d32f8a70a0c5a80ac3f18a92}
 
 
-Removes an object from the \hyperlink{classcs110graphics_1_1Window}{Window} object, assuming the object being deleted exists. 
+Removes an object from the \hyperlink{classcs110graphics_1_1Window}{Window}. 
 \begin{DoxyParams}{Parameters}
 \item[{\em graphic}]-\/ \hyperlink{classcs110graphics_1_1GraphicalObject}{GraphicalObject} \end{DoxyParams}
 \hypertarget{classcs110graphics_1_1Window_a981a3115f1f22099549117313f38333c}{

@@ -16,10 +16,6 @@ Inheritance diagram for cs110graphics.Image::\begin{figure}[H]
 \item 
 def \hyperlink{classcs110graphics_1_1Image_a3b7c128fa18d85ff4a7586fac04a1bc2}{\_\-\_\-init\_\-\_\-}
 \item 
-def \hyperlink{classcs110graphics_1_1Image_a540d48247976343a91c610009a9af8cd}{move}
-\begin{DoxyCompactList}\small\item\em Moves the object dx pixels horizontally and dy pixels vertically. \item\end{DoxyCompactList}\item 
-def \hyperlink{classcs110graphics_1_1Image_a4b2e775fbb0cb523f6bc09028dc05c65}{move\_\-to}
-\begin{DoxyCompactList}\small\item\em Moves a graphical object to a point. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1Image_a0754151035bb2892f0cd3895b64488fa}{resize}
 \begin{DoxyCompactList}\small\item\em Resizes the \hyperlink{classcs110graphics_1_1Image}{Image}. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1Image_ac58717d68279e536cee608e2bdfc6aa8}{rotate}
@@ -34,6 +30,10 @@ def \hyperlink{classcs110graphics_1_1GraphicalObject_a062789c4cc9de38af32dcc4ff2
 \begin{DoxyCompactList}\small\item\em Returns the center of the object. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1GraphicalObject_a6d9f5718cd0cf249e0d2842971bae17f}{get\_\-depth}
 \begin{DoxyCompactList}\small\item\em Returns the depth of the object. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}{move}
+\begin{DoxyCompactList}\small\item\em Moves the object dx pixels horizontally and dy pixels vertically. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}{move\_\-to}
+\begin{DoxyCompactList}\small\item\em Moves a graphical object to a point. \item\end{DoxyCompactList}\item 
 def \hyperlink{classcs110graphics_1_1GraphicalObject_a20d76d4ee4419c3065d61deb6cbc6700}{set\_\-depth}
 \begin{DoxyCompactList}\small\item\em Sets the depth of the \hyperlink{classcs110graphics_1_1GraphicalObject}{GraphicalObject}. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -86,31 +86,27 @@ center -\/ tuple
 Returns the depth of the object. \begin{DoxyReturn}{Returns}
 depth -\/ int 
 \end{DoxyReturn}
-\hypertarget{classcs110graphics_1_1Image_a540d48247976343a91c610009a9af8cd}{
+\hypertarget{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}{
 \index{cs110graphics::Image@{cs110graphics::Image}!move@{move}}
 \index{move@{move}!cs110graphics::Image@{cs110graphics::Image}}
-\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.Image.move ( {\em self}, \/   {\em dx}, \/   {\em dy})}}
-\label{classcs110graphics_1_1Image_a540d48247976343a91c610009a9af8cd}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.move ( {\em self}, \/   {\em dx}, \/   {\em dy})\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}
+\label{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}
 
 
 Moves the object dx pixels horizontally and dy pixels vertically. 
 \begin{DoxyParams}{Parameters}
 \item[{\em dx}]-\/ int \item[{\em dy}]-\/ int \end{DoxyParams}
-
-
-Reimplemented from \hyperlink{classcs110graphics_1_1GraphicalObject_aa64d270fb83efa4a54e1a7953512f9cd}{cs110graphics.GraphicalObject}.\hypertarget{classcs110graphics_1_1Image_a4b2e775fbb0cb523f6bc09028dc05c65}{
+\hypertarget{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}{
 \index{cs110graphics::Image@{cs110graphics::Image}!move\_\-to@{move\_\-to}}
 \index{move\_\-to@{move\_\-to}!cs110graphics::Image@{cs110graphics::Image}}
-\subsubsection[{move\_\-to}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.Image.move\_\-to ( {\em self}, \/   {\em point})}}
-\label{classcs110graphics_1_1Image_a4b2e775fbb0cb523f6bc09028dc05c65}
+\subsubsection[{move\_\-to}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.GraphicalObject.move\_\-to ( {\em self}, \/   {\em point})\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}
+\label{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}
 
 
 Moves a graphical object to a point. 
 \begin{DoxyParams}{Parameters}
 \item[{\em point}]-\/ tuple of (int $\ast$ int) \end{DoxyParams}
-
-
-Reimplemented from \hyperlink{classcs110graphics_1_1GraphicalObject_abe2d480265df7ac9447205c52c6946df}{cs110graphics.GraphicalObject}.\hypertarget{classcs110graphics_1_1Image_a0754151035bb2892f0cd3895b64488fa}{
+\hypertarget{classcs110graphics_1_1Image_a0754151035bb2892f0cd3895b64488fa}{
 \index{cs110graphics::Image@{cs110graphics::Image}!resize@{resize}}
 \index{resize@{resize}!cs110graphics::Image@{cs110graphics::Image}}
 \subsubsection[{resize}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.Image.resize ( {\em self}, \/   {\em width}, \/   {\em height})}}

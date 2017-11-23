@@ -18,6 +18,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -77,10 +78,6 @@ Inheritance diagram for cs110graphics.Polygon:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Rotates the object.  <a href="#afa6710f6c314de39d19f06d9dd306d7d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a80d5b6b6d2ebae867dccecb803075749">scale</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Scales the object up or down depending on the factor.  <a href="#a80d5b6b6d2ebae867dccecb803075749"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#ae8f6c476e29c0810453dc16948e1730c">move</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Moves the object dx pixels horizontally and dy pixels vertically.  <a href="#ae8f6c476e29c0810453dc16948e1730c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#adcabc14e76d1160ff591b9ef7f3d6a97">move_to</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Moves a graphical object to a point.  <a href="#adcabc14e76d1160ff591b9ef7f3d6a97"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a2f830be5d970faac97759910d20d68a4">set_border_color</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the border color.  <a href="#a2f830be5d970faac97759910d20d68a4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a09f05462cb2ed38fdccb244340f05b2b">set_border_width</a></td></tr>
@@ -95,6 +92,10 @@ Inheritance diagram for cs110graphics.Polygon:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the center of the object.  <a href="#a062789c4cc9de38af32dcc4ff2058607"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#a6d9f5718cd0cf249e0d2842971bae17f">get_depth</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the depth of the object.  <a href="#a6d9f5718cd0cf249e0d2842971bae17f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#aa64d270fb83efa4a54e1a7953512f9cd">move</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Moves the object dx pixels horizontally and dy pixels vertically.  <a href="#aa64d270fb83efa4a54e1a7953512f9cd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#abe2d480265df7ac9447205c52c6946df">move_to</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Moves a graphical object to a point.  <a href="#abe2d480265df7ac9447205c52c6946df"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#a20d76d4ee4419c3065d61deb6cbc6700">set_depth</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the depth of the <a class="el" href="classcs110graphics_1_1GraphicalObject.html" title="This is a parent class of any object which can be put into Window.">GraphicalObject</a>.  <a href="#a20d76d4ee4419c3065d61deb6cbc6700"></a><br/></td></tr>
 </table>
@@ -302,12 +303,12 @@ Inheritance diagram for cs110graphics.Polygon:</div>
 
 </div>
 </div>
-<a class="anchor" id="ae8f6c476e29c0810453dc16948e1730c"></a><!-- doxytag: member="cs110graphics::Polygon::move" ref="ae8f6c476e29c0810453dc16948e1730c" args="" -->
+<a class="anchor" id="aa64d270fb83efa4a54e1a7953512f9cd"></a><!-- doxytag: member="cs110graphics::Polygon::move" ref="aa64d270fb83efa4a54e1a7953512f9cd" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def cs110graphics.Fillable.move </td>
+          <td class="memname">def cs110graphics.GraphicalObject.move </td>
           <td>(</td>
           <td class="paramtype">&nbsp;</td>
           <td class="paramname"> <em>self</em>, </td>
@@ -342,16 +343,14 @@ Inheritance diagram for cs110graphics.Polygon:</div>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classcs110graphics_1_1GraphicalObject.html#aa64d270fb83efa4a54e1a7953512f9cd">cs110graphics.GraphicalObject</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="adcabc14e76d1160ff591b9ef7f3d6a97"></a><!-- doxytag: member="cs110graphics::Polygon::move_to" ref="adcabc14e76d1160ff591b9ef7f3d6a97" args="" -->
+<a class="anchor" id="abe2d480265df7ac9447205c52c6946df"></a><!-- doxytag: member="cs110graphics::Polygon::move_to" ref="abe2d480265df7ac9447205c52c6946df" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def cs110graphics.Fillable.move_to </td>
+          <td class="memname">def cs110graphics.GraphicalObject.move_to </td>
           <td>(</td>
           <td class="paramtype">&nbsp;</td>
           <td class="paramname"> <em>self</em>, </td>
@@ -378,8 +377,6 @@ Inheritance diagram for cs110graphics.Polygon:</div>
   </table>
   </dd>
 </dl>
-
-<p>Reimplemented from <a class="el" href="classcs110graphics_1_1GraphicalObject.html#abe2d480265df7ac9447205c52c6946df">cs110graphics.GraphicalObject</a>.</p>
 
 </div>
 </div>
@@ -416,6 +413,8 @@ Inheritance diagram for cs110graphics.Polygon:</div>
   </dd>
 </dl>
 
+<p>Reimplemented in <a class="el" href="classcs110graphics_1_1Circle.html#a0532651c10c084766ac3032c57107eb0">cs110graphics.Circle</a>, and <a class="el" href="classcs110graphics_1_1Oval.html#a98bb8103f19d2df5a875db6943fde6e2">cs110graphics.Oval</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a80d5b6b6d2ebae867dccecb803075749"></a><!-- doxytag: member="cs110graphics::Polygon::scale" ref="a80d5b6b6d2ebae867dccecb803075749" args="" -->
@@ -450,6 +449,8 @@ Inheritance diagram for cs110graphics.Polygon:</div>
   </table>
   </dd>
 </dl>
+
+<p>Reimplemented in <a class="el" href="classcs110graphics_1_1Circle.html#a9ffed9eb3f191fafadd5b2d7e7735c18">cs110graphics.Circle</a>, and <a class="el" href="classcs110graphics_1_1Oval.html#accf5ef95d1127e0abe9f09823051d75f">cs110graphics.Oval</a>.</p>
 
 </div>
 </div>
@@ -646,7 +647,7 @@ Inheritance diagram for cs110graphics.Polygon:</div>
 </iframe>
 </div>
 
-<hr size="1"/><address style="text-align: right;"><small>Generated on 19 Nov 2017 for Hamilton College CS110 Graphics Library by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Nov 2017 for Hamilton College CS110 Graphics Library by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

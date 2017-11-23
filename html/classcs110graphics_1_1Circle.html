@@ -18,6 +18,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -65,6 +66,10 @@ Inheritance diagram for cs110graphics.Circle:</div>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Circle.html#a7c92c173c0e9666d0682c48fbd170e9f">__init__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Circle.html#a0532651c10c084766ac3032c57107eb0">rotate</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Rotates the object.  <a href="#a0532651c10c084766ac3032c57107eb0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Circle.html#a9ffed9eb3f191fafadd5b2d7e7735c18">scale</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Scales the object up or down depending on the factor.  <a href="#a9ffed9eb3f191fafadd5b2d7e7735c18"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Circle.html#a39b0cb138b31565d2a52180a2b03cc31">set_radius</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the radius of the <a class="el" href="classcs110graphics_1_1Circle.html" title="A circle, which can be added to a Window object.">Circle</a>.  <a href="#a39b0cb138b31565d2a52180a2b03cc31"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a6772d56158c9fe98a33f01d47cb8aa41">get_border_color</a></td></tr>
@@ -75,14 +80,6 @@ Inheritance diagram for cs110graphics.Circle:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns fill color.  <a href="#a16c045bc9b63961b696914ee1a1d14d9"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a514fa0d21297c1372681afae9219fd58">get_pivot</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the pivot point.  <a href="#a514fa0d21297c1372681afae9219fd58"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#afa6710f6c314de39d19f06d9dd306d7d">rotate</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Rotates the object.  <a href="#afa6710f6c314de39d19f06d9dd306d7d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a80d5b6b6d2ebae867dccecb803075749">scale</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Scales the object up or down depending on the factor.  <a href="#a80d5b6b6d2ebae867dccecb803075749"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#ae8f6c476e29c0810453dc16948e1730c">move</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Moves the object dx pixels horizontally and dy pixels vertically.  <a href="#ae8f6c476e29c0810453dc16948e1730c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#adcabc14e76d1160ff591b9ef7f3d6a97">move_to</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Moves a graphical object to a point.  <a href="#adcabc14e76d1160ff591b9ef7f3d6a97"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a2f830be5d970faac97759910d20d68a4">set_border_color</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the border color.  <a href="#a2f830be5d970faac97759910d20d68a4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a09f05462cb2ed38fdccb244340f05b2b">set_border_width</a></td></tr>
@@ -97,6 +94,10 @@ Inheritance diagram for cs110graphics.Circle:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the center of the object.  <a href="#a062789c4cc9de38af32dcc4ff2058607"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#a6d9f5718cd0cf249e0d2842971bae17f">get_depth</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the depth of the object.  <a href="#a6d9f5718cd0cf249e0d2842971bae17f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#aa64d270fb83efa4a54e1a7953512f9cd">move</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Moves the object dx pixels horizontally and dy pixels vertically.  <a href="#aa64d270fb83efa4a54e1a7953512f9cd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#abe2d480265df7ac9447205c52c6946df">move_to</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Moves a graphical object to a point.  <a href="#abe2d480265df7ac9447205c52c6946df"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#a20d76d4ee4419c3065d61deb6cbc6700">set_depth</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the depth of the <a class="el" href="classcs110graphics_1_1GraphicalObject.html" title="This is a parent class of any object which can be put into Window.">GraphicalObject</a>.  <a href="#a20d76d4ee4419c3065d61deb6cbc6700"></a><br/></td></tr>
 </table>
@@ -311,12 +312,12 @@ Inheritance diagram for cs110graphics.Circle:</div>
 
 </div>
 </div>
-<a class="anchor" id="ae8f6c476e29c0810453dc16948e1730c"></a><!-- doxytag: member="cs110graphics::Circle::move" ref="ae8f6c476e29c0810453dc16948e1730c" args="" -->
+<a class="anchor" id="aa64d270fb83efa4a54e1a7953512f9cd"></a><!-- doxytag: member="cs110graphics::Circle::move" ref="aa64d270fb83efa4a54e1a7953512f9cd" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def cs110graphics.Fillable.move </td>
+          <td class="memname">def cs110graphics.GraphicalObject.move </td>
           <td>(</td>
           <td class="paramtype">&nbsp;</td>
           <td class="paramname"> <em>self</em>, </td>
@@ -351,16 +352,14 @@ Inheritance diagram for cs110graphics.Circle:</div>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classcs110graphics_1_1GraphicalObject.html#aa64d270fb83efa4a54e1a7953512f9cd">cs110graphics.GraphicalObject</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="adcabc14e76d1160ff591b9ef7f3d6a97"></a><!-- doxytag: member="cs110graphics::Circle::move_to" ref="adcabc14e76d1160ff591b9ef7f3d6a97" args="" -->
+<a class="anchor" id="abe2d480265df7ac9447205c52c6946df"></a><!-- doxytag: member="cs110graphics::Circle::move_to" ref="abe2d480265df7ac9447205c52c6946df" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def cs110graphics.Fillable.move_to </td>
+          <td class="memname">def cs110graphics.GraphicalObject.move_to </td>
           <td>(</td>
           <td class="paramtype">&nbsp;</td>
           <td class="paramname"> <em>self</em>, </td>
@@ -388,16 +387,14 @@ Inheritance diagram for cs110graphics.Circle:</div>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classcs110graphics_1_1GraphicalObject.html#abe2d480265df7ac9447205c52c6946df">cs110graphics.GraphicalObject</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="afa6710f6c314de39d19f06d9dd306d7d"></a><!-- doxytag: member="cs110graphics::Circle::rotate" ref="afa6710f6c314de39d19f06d9dd306d7d" args="" -->
+<a class="anchor" id="a0532651c10c084766ac3032c57107eb0"></a><!-- doxytag: member="cs110graphics::Circle::rotate" ref="a0532651c10c084766ac3032c57107eb0" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def cs110graphics.Fillable.rotate </td>
+          <td class="memname">def cs110graphics.Circle.rotate </td>
           <td>(</td>
           <td class="paramtype">&nbsp;</td>
           <td class="paramname"> <em>self</em>, </td>
@@ -411,7 +408,7 @@ Inheritance diagram for cs110graphics.Circle:</div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td><td><code> [inherited]</code></td>
+          <td></td><td></td><td></td>
         </tr>
       </table>
 </div>
@@ -425,14 +422,16 @@ Inheritance diagram for cs110graphics.Circle:</div>
   </dd>
 </dl>
 
+<p>Reimplemented from <a class="el" href="classcs110graphics_1_1Fillable.html#afa6710f6c314de39d19f06d9dd306d7d">cs110graphics.Fillable</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a80d5b6b6d2ebae867dccecb803075749"></a><!-- doxytag: member="cs110graphics::Circle::scale" ref="a80d5b6b6d2ebae867dccecb803075749" args="" -->
+<a class="anchor" id="a9ffed9eb3f191fafadd5b2d7e7735c18"></a><!-- doxytag: member="cs110graphics::Circle::scale" ref="a9ffed9eb3f191fafadd5b2d7e7735c18" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def cs110graphics.Fillable.scale </td>
+          <td class="memname">def cs110graphics.Circle.scale </td>
           <td>(</td>
           <td class="paramtype">&nbsp;</td>
           <td class="paramname"> <em>self</em>, </td>
@@ -446,7 +445,7 @@ Inheritance diagram for cs110graphics.Circle:</div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td><td><code> [inherited]</code></td>
+          <td></td><td></td><td></td>
         </tr>
       </table>
 </div>
@@ -459,6 +458,8 @@ Inheritance diagram for cs110graphics.Circle:</div>
   </table>
   </dd>
 </dl>
+
+<p>Reimplemented from <a class="el" href="classcs110graphics_1_1Fillable.html#a80d5b6b6d2ebae867dccecb803075749">cs110graphics.Fillable</a>.</p>
 
 </div>
 </div>
@@ -690,7 +691,7 @@ Inheritance diagram for cs110graphics.Circle:</div>
 </iframe>
 </div>
 
-<hr size="1"/><address style="text-align: right;"><small>Generated on 19 Nov 2017 for Hamilton College CS110 Graphics Library by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Nov 2017 for Hamilton College CS110 Graphics Library by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

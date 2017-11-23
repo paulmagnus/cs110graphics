@@ -18,6 +18,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="tabs">
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -64,10 +65,6 @@ Inheritance diagram for cs110graphics.Text:</div>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Text.html#a022ce78a2945edbd8dfe3c4498769a62">__init__</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Text.html#a6bd6f174fc82f2225a4d162ca6b90ec2">move</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Moves the object dx pixels horizontally and dy pixels vertically.  <a href="#a6bd6f174fc82f2225a4d162ca6b90ec2"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Text.html#a615a76c8d2edd6c6af5d39d4e2577a27">move_to</a></td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Moves a graphical object to a point.  <a href="#a615a76c8d2edd6c6af5d39d4e2577a27"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Text.html#ad470aa26235fc2f5f1459c3750251207">set_size</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the point size of the text.  <a href="#ad470aa26235fc2f5f1459c3750251207"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Text.html#ab12aa7478ca6a2b2015b7e8544674c73">set_text</a></td></tr>
@@ -78,6 +75,10 @@ Inheritance diagram for cs110graphics.Text:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the center of the object.  <a href="#a062789c4cc9de38af32dcc4ff2058607"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#a6d9f5718cd0cf249e0d2842971bae17f">get_depth</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the depth of the object.  <a href="#a6d9f5718cd0cf249e0d2842971bae17f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#aa64d270fb83efa4a54e1a7953512f9cd">move</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Moves the object dx pixels horizontally and dy pixels vertically.  <a href="#aa64d270fb83efa4a54e1a7953512f9cd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#abe2d480265df7ac9447205c52c6946df">move_to</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Moves a graphical object to a point.  <a href="#abe2d480265df7ac9447205c52c6946df"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#a20d76d4ee4419c3065d61deb6cbc6700">set_depth</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the depth of the <a class="el" href="classcs110graphics_1_1GraphicalObject.html" title="This is a parent class of any object which can be put into Window.">GraphicalObject</a>.  <a href="#a20d76d4ee4419c3065d61deb6cbc6700"></a><br/></td></tr>
 </table>
@@ -135,6 +136,8 @@ Inheritance diagram for cs110graphics.Text:</div>
   </table>
   </dd>
 </dl>
+
+<p>Reimplemented from <a class="el" href="classcs110graphics_1_1GraphicalObject.html">cs110graphics.GraphicalObject</a>.</p>
 
 </div>
 </div>
@@ -215,12 +218,12 @@ Inheritance diagram for cs110graphics.Text:</div>
 
 </div>
 </div>
-<a class="anchor" id="a6bd6f174fc82f2225a4d162ca6b90ec2"></a><!-- doxytag: member="cs110graphics::Text::move" ref="a6bd6f174fc82f2225a4d162ca6b90ec2" args="" -->
+<a class="anchor" id="aa64d270fb83efa4a54e1a7953512f9cd"></a><!-- doxytag: member="cs110graphics::Text::move" ref="aa64d270fb83efa4a54e1a7953512f9cd" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def cs110graphics.Text.move </td>
+          <td class="memname">def cs110graphics.GraphicalObject.move </td>
           <td>(</td>
           <td class="paramtype">&nbsp;</td>
           <td class="paramname"> <em>self</em>, </td>
@@ -240,7 +243,7 @@ Inheritance diagram for cs110graphics.Text:</div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td><td></td>
+          <td></td><td></td><td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -255,16 +258,14 @@ Inheritance diagram for cs110graphics.Text:</div>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classcs110graphics_1_1GraphicalObject.html#aa64d270fb83efa4a54e1a7953512f9cd">cs110graphics.GraphicalObject</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a615a76c8d2edd6c6af5d39d4e2577a27"></a><!-- doxytag: member="cs110graphics::Text::move_to" ref="a615a76c8d2edd6c6af5d39d4e2577a27" args="" -->
+<a class="anchor" id="abe2d480265df7ac9447205c52c6946df"></a><!-- doxytag: member="cs110graphics::Text::move_to" ref="abe2d480265df7ac9447205c52c6946df" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">def cs110graphics.Text.move_to </td>
+          <td class="memname">def cs110graphics.GraphicalObject.move_to </td>
           <td>(</td>
           <td class="paramtype">&nbsp;</td>
           <td class="paramname"> <em>self</em>, </td>
@@ -278,7 +279,7 @@ Inheritance diagram for cs110graphics.Text:</div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td><td></td>
+          <td></td><td></td><td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -291,8 +292,6 @@ Inheritance diagram for cs110graphics.Text:</div>
   </table>
   </dd>
 </dl>
-
-<p>Reimplemented from <a class="el" href="classcs110graphics_1_1GraphicalObject.html#abe2d480265df7ac9447205c52c6946df">cs110graphics.GraphicalObject</a>.</p>
 
 </div>
 </div>
@@ -419,7 +418,7 @@ Inheritance diagram for cs110graphics.Text:</div>
 </iframe>
 </div>
 
-<hr size="1"/><address style="text-align: right;"><small>Generated on 19 Nov 2017 for Hamilton College CS110 Graphics Library by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Nov 2017 for Hamilton College CS110 Graphics Library by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>

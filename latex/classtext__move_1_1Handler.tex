@@ -1,0 +1,171 @@
+\hypertarget{classtext__move_1_1Handler}{
+\section{text\_\-move.Handler Class Reference}
+\label{classtext__move_1_1Handler}\index{text\_\-move::Handler@{text\_\-move::Handler}}
+}
+Inheritance diagram for text\_\-move.Handler::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classtext__move_1_1Handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classtext__move_1_1Handler_a5a42b4eb6df32fce14be58a45a7a82f0}{handle\_\-key\_\-press}
+\begin{DoxyCompactList}\small\item\em Handles a key press. \item\end{DoxyCompactList}\item 
+def \hyperlink{classtext__move_1_1Handler_a51652a1d51554e661117de1ee7856169}{handle\_\-mouse\_\-enter}
+\begin{DoxyCompactList}\small\item\em Handles when a mouse enters an object. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1EventHandler_a2849f60251baa44252992162521f2473}{handle\_\-key\_\-release}
+\begin{DoxyCompactList}\small\item\em Handles a key release. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1EventHandler_a5deaf2b6b8055e97ac0ddf6603132c64}{handle\_\-mouse\_\-leave}
+\begin{DoxyCompactList}\small\item\em Handles when a mouse leaves an object. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1EventHandler_a521fdcd170d15c0b8baa124c78b6d1ef}{handle\_\-mouse\_\-move}
+\begin{DoxyCompactList}\small\item\em Handles a mouse move. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1EventHandler_a547873123ebcd3fcc63a2e03d2a2fee3}{handle\_\-mouse\_\-press}
+\begin{DoxyCompactList}\small\item\em Handles a mouse press. \item\end{DoxyCompactList}\item 
+def \hyperlink{classcs110graphics_1_1EventHandler_a320a7dbf68d37e0101b237bff1713088}{handle\_\-mouse\_\-release}
+\begin{DoxyCompactList}\small\item\em Handles a mouse release. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classtext__move_1_1Handler_a5a42b4eb6df32fce14be58a45a7a82f0}{
+\index{text\_\-move::Handler@{text\_\-move::Handler}!handle\_\-key\_\-press@{handle\_\-key\_\-press}}
+\index{handle\_\-key\_\-press@{handle\_\-key\_\-press}!text_move::Handler@{text\_\-move::Handler}}
+\subsubsection[{handle\_\-key\_\-press}]{\setlength{\rightskip}{0pt plus 5cm}def text\_\-move.Handler.handle\_\-key\_\-press ( {\em self}, \/   {\em event})}}
+\label{classtext__move_1_1Handler_a5a42b4eb6df32fce14be58a45a7a82f0}
+
+
+Handles a key press. This function will be called whenever a key is pressed while the window is active. The event parameter can be used to determine which key was pressed. For example: 
+\begin{DoxyCode}
+ class Handler(EventHandler):
+     def handle_key_press(self, event):
+         if "a" == event.get_key():
+             # do something when a is pressed...
+         else:
+             # do something else...
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]-\/ Event -\/ the event that occurred \end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classcs110graphics_1_1EventHandler_af3fb3531d0b23f1430a830586cd07906}{cs110graphics.EventHandler}.\hypertarget{classcs110graphics_1_1EventHandler_a2849f60251baa44252992162521f2473}{
+\index{text\_\-move::Handler@{text\_\-move::Handler}!handle\_\-key\_\-release@{handle\_\-key\_\-release}}
+\index{handle\_\-key\_\-release@{handle\_\-key\_\-release}!text_move::Handler@{text\_\-move::Handler}}
+\subsubsection[{handle\_\-key\_\-release}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.EventHandler.handle\_\-key\_\-release ( {\em self}, \/   {\em event})\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}
+\label{classcs110graphics_1_1EventHandler_a2849f60251baa44252992162521f2473}
+
+
+Handles a key release. This method will be called whenever a key is released while the window is active. The event parameter can be used to determine which key was pressed. For example: 
+\begin{DoxyCode}
+ class Handler(EventHandler):
+     def handle_key_release(self, event):
+         if "a" == event.get_key():
+             # do something when a is released...
+         else:
+             # do something else...
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]-\/ \hyperlink{classcs110graphics_1_1Event}{Event} -\/ the event that occurred \end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classtest_1_1Bot_a173d0fff530e0987193e9006b24f218b}{test.Bot}.\hypertarget{classtext__move_1_1Handler_a51652a1d51554e661117de1ee7856169}{
+\index{text\_\-move::Handler@{text\_\-move::Handler}!handle\_\-mouse\_\-enter@{handle\_\-mouse\_\-enter}}
+\index{handle\_\-mouse\_\-enter@{handle\_\-mouse\_\-enter}!text_move::Handler@{text\_\-move::Handler}}
+\subsubsection[{handle\_\-mouse\_\-enter}]{\setlength{\rightskip}{0pt plus 5cm}def text\_\-move.Handler.handle\_\-mouse\_\-enter ( {\em self}, \/   {\em event})}}
+\label{classtext__move_1_1Handler_a51652a1d51554e661117de1ee7856169}
+
+
+Handles when a mouse enters an object. \begin{Desc}
+\item[\hyperlink{bug__bug000001}{Bug}]Overrides of this method is likely to be called more often than expected and many GraphicalObject methods will not work correctly with when called within the method, avoid using this if possible.\end{Desc}
+This is called by the system when the mouse enters the GraphicalObject that this handler is an event handler for. The event parameter can be used to determine the location at which the mouse entered the object. 
+\begin{DoxyCode}
+ class Handler(EventHandler):
+     def handle_mouse_enter(self, event):
+         mouse_location = event.get_mouse_location()
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]-\/ Event -\/ the event that occurred \end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classcs110graphics_1_1EventHandler_a13af3268f8a1aa36b8483eb2deffef15}{cs110graphics.EventHandler}.\hypertarget{classcs110graphics_1_1EventHandler_a5deaf2b6b8055e97ac0ddf6603132c64}{
+\index{text\_\-move::Handler@{text\_\-move::Handler}!handle\_\-mouse\_\-leave@{handle\_\-mouse\_\-leave}}
+\index{handle\_\-mouse\_\-leave@{handle\_\-mouse\_\-leave}!text_move::Handler@{text\_\-move::Handler}}
+\subsubsection[{handle\_\-mouse\_\-leave}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.EventHandler.handle\_\-mouse\_\-leave ( {\em self}, \/   {\em event})\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}
+\label{classcs110graphics_1_1EventHandler_a5deaf2b6b8055e97ac0ddf6603132c64}
+
+
+Handles when a mouse leaves an object. This is called by the system when the mouse leaves the \hyperlink{classcs110graphics_1_1GraphicalObject}{GraphicalObject} that this handler is an event handler for. The event parameter can be used to determine the location at which the mouse left the object. 
+\begin{DoxyCode}
+ class Handler(EventHandler):
+     def handle_mouse_leave(self, event):
+         mouse_location = event.get_mouse_location()
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]-\/ \hyperlink{classcs110graphics_1_1Event}{Event} -\/ the event that occurred \end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classtest_1_1Bot_a2b65e6ecaba1afb4f117b74a684b4387}{test.Bot}.\hypertarget{classcs110graphics_1_1EventHandler_a521fdcd170d15c0b8baa124c78b6d1ef}{
+\index{text\_\-move::Handler@{text\_\-move::Handler}!handle\_\-mouse\_\-move@{handle\_\-mouse\_\-move}}
+\index{handle\_\-mouse\_\-move@{handle\_\-mouse\_\-move}!text_move::Handler@{text\_\-move::Handler}}
+\subsubsection[{handle\_\-mouse\_\-move}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.EventHandler.handle\_\-mouse\_\-move ( {\em self}, \/   {\em event})\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}
+\label{classcs110graphics_1_1EventHandler_a521fdcd170d15c0b8baa124c78b6d1ef}
+
+
+Handles a mouse move. This is called by the system when the mouse moves within the \hyperlink{classcs110graphics_1_1GraphicalObject}{GraphicalObject} that this handler is an event handler for. The event parameter can be used to determine the location that the mouse moved to. 
+\begin{DoxyCode}
+ class Handler(EventHandler):
+     def handle_mouse_move(self, event):
+         mouse_location = event.get_mouse_location()
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]-\/ \hyperlink{classcs110graphics_1_1Event}{Event} -\/ the event that occurred \end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classtest_1_1Handler_a88a2d58962eb4bf7338332848fa5fc3a}{test.Handler}, and \hyperlink{classtest_1_1Bot_ad1464516fb04013fa7e353a78f0ec218}{test.Bot}.\hypertarget{classcs110graphics_1_1EventHandler_a547873123ebcd3fcc63a2e03d2a2fee3}{
+\index{text\_\-move::Handler@{text\_\-move::Handler}!handle\_\-mouse\_\-press@{handle\_\-mouse\_\-press}}
+\index{handle\_\-mouse\_\-press@{handle\_\-mouse\_\-press}!text_move::Handler@{text\_\-move::Handler}}
+\subsubsection[{handle\_\-mouse\_\-press}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.EventHandler.handle\_\-mouse\_\-press ( {\em self}, \/   {\em event})\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}
+\label{classcs110graphics_1_1EventHandler_a547873123ebcd3fcc63a2e03d2a2fee3}
+
+
+Handles a mouse press. This is called by the system when a mouse button is pressed while the mouse is on the \hyperlink{classcs110graphics_1_1GraphicalObject}{GraphicalObject} that this handler is an event handler for. The event parameter can be used to determine the location at which the mouse button was pressed and which mouse button was pressed. 
+\begin{DoxyCode}
+ class Handler(EventHandler):
+     def handle_mouse_press(self, event):
+         mouse_location = event.get_mouse_location()
+         mouse_button = event.get_button()
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]-\/ \hyperlink{classcs110graphics_1_1Event}{Event} -\/ the event that occurred \end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classtest_1_1Bot_a970422a4391cc2b9ff89a2e42063bb6e}{test.Bot}, and \hyperlink{classtext__move_1_1H2_a13611a7fe23eefc92b40ff3874e026bd}{text\_\-move.H2}.\hypertarget{classcs110graphics_1_1EventHandler_a320a7dbf68d37e0101b237bff1713088}{
+\index{text\_\-move::Handler@{text\_\-move::Handler}!handle\_\-mouse\_\-release@{handle\_\-mouse\_\-release}}
+\index{handle\_\-mouse\_\-release@{handle\_\-mouse\_\-release}!text_move::Handler@{text\_\-move::Handler}}
+\subsubsection[{handle\_\-mouse\_\-release}]{\setlength{\rightskip}{0pt plus 5cm}def cs110graphics.EventHandler.handle\_\-mouse\_\-release ( {\em self}, \/   {\em event})\hspace{0.3cm}{\ttfamily  \mbox{[}inherited\mbox{]}}}}
+\label{classcs110graphics_1_1EventHandler_a320a7dbf68d37e0101b237bff1713088}
+
+
+Handles a mouse release. This is called by the system when a mouse button is released while the mouse is on the \hyperlink{classcs110graphics_1_1GraphicalObject}{GraphicalObject} that this handler is an event handler for. The event parameter can be used to determine the location at which the mouse button was released and which mouse button was released. 
+\begin{DoxyCode}
+ class Handler(EventHandler):
+     def handle_mouse_release(self, event):
+         mouse_location = event.get_mouse_location()
+         mouse_button = event.get_button()
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parameters}
+\item[{\em event}]-\/ \hyperlink{classcs110graphics_1_1Event}{Event} -\/ the event that occurred \end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classsample_1_1Remover_a84484de500f08402e582c126432e0cf1}{sample.Remover}, and \hyperlink{classtest_1_1Bot_a18fc05b6e2c1e42e1b6c639f4844a059}{test.Bot}.
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+text\_\-move.py\end{DoxyCompactItemize}
