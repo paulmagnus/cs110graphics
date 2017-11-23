@@ -76,6 +76,15 @@ def _check_function(fn, fn_name):
                         "function\n" +
                         fn_name + " = " + str(fn))
 
+# Verifies that gen is a generator
+# If not, then a TypeError is raised
+def _check_generator(gen, gen_name):
+    if not (inspect.isgenerator(gen) or
+            inspect.isgeneratorfunction(gen)):
+        raise TypeError("\nThe parameter '" + gen_name + "' should be a " +
+                        "generator function\n" +
+                        gen_name + " = " + str(gen))
+
 ## @file cs110graphics.py
 # The main cs110graphics file
 
@@ -138,10 +147,39 @@ class Window:
         self.set_title(name)
         self.set_background(background)
 
+        # set up key event handling
+        self._bind_handlers()
+
         if first_function is not None:
             # running first function
             self._first_function(self)
+            # display graphics when done
             self.refresh()
+
+    # This controls the Tkinter integration of event handlers
+    # Key events are handled at the Window/Canvas level
+    def _bind_handlers(self):
+        bindings = {
+            "<Key>"                : self._key_press,
+            "<KeyRelease>"         : self._key_release,
+        }
+
+        for binding in bindings:
+            # binding is the Tkinter binding string
+            # bindings[binding] is the function to be bound
+            self._canvas.bind(binding, bindings[binding])
+
+    # Key press is bound at the canvas level
+    # This then calls each graphic's _key_press method
+    def _key_press(self, event):
+        for graphic in self._graphics:
+            graphic[2]._key_press(event)
+
+    # Key release is bound at the canvas level
+    # This then calls each graphic's _key_release method
+    def _key_release(self, event):
+        for graphic in self._graphics:
+            graphic[2]._key_release(event)
 
     ## Adds an object to the Window.
     # @param graphic - GraphicalObject
@@ -231,6 +269,7 @@ class Window:
     # @param start - GraphicalObject - <b>(default: None)</b> only objects with
     # the same or equal depth to this object are refreshed.
     def refresh(self, start = None):
+        print("Refreshing the window")
         if start is not None:
             _check_type(start, "start", GraphicalObject)
             start_depth = start.get_depth()
@@ -244,7 +283,6 @@ class Window:
             if (start_depth is None or
                 graphic[0] <= start_depth):
                 # refresh the graphic
-                print("Refreshing", graphic[2])
                 graphic[2]._refresh()
 
 
@@ -623,58 +661,89 @@ class GraphicalObject:
                               self]
         self._window._graphics.append(self._graphic_list)
 
+        self._handlers = []
+
     ## Adds a handler to the graphical object.
     # @param handler_object - EventHandler - the object that handles
     # the events for this GraphicalObject
     def add_handler(self, handler_object):
-        def key_press(event):
-            tkEvent = Event(event)
-            _call_handler(handler_object.handle_key_press, tkEvent)
+        _check_type(handler_object, "handler_object", EventHandler)
+        
+        if handler_object not in self._handlers:
+            self._handlers.append(handler_object)
 
-        def key_release(event):
-            tkEvent = Event(event)
-            _call_handler(handler_object.handle_key_release, tkEvent)
-
-        def mouse_enter(event):
-            tkEvent = Event(event)
-            _call_handler(handler_object.handle_mouse_enter, tkEvent)
-
-        def mouse_leave(event):
-            tkEvent = Event(event)
-            _call_handler(handler_object.handle_mouse_leave, tkEvent)
-
-        def mouse_move(event):
-            tkEvent = Event(event)
-            _call_handler(handler_object.handle_mouse_move, tkEvent)
-
-        def mouse_press(event):
-            tkEvent = Event(event)
-            _call_handler(handler_object.handle_mouse_press, tkEvent)
-
-        def mouse_release(event):
-            tkEvent = Event(event)
-            _call_handler(handler_object.handle_mouse_release, tkEvent)
-
-        # this is to enable readding handlers after each object's tag is
-        # changed
-        self._parent_object = handler_object
         self._has_handlers = True
-        # the duplicates are necessary to allow support for multiple mouse
-        # buttons
-        types = ["<Key>", "<KeyRelease>", "<Enter>", "<Leave>",
-                 "<Motion>", "<Button-1>", "<Button-2>", "<Button-3>",
-                 "<ButtonRelease-1>", "<ButtonRelease-2>", "<ButtonRelease-3>"]
-        funcs = [key_press, key_release, mouse_enter, mouse_leave, mouse_move,
-                 mouse_press, mouse_press, mouse_press,
-                 mouse_release, mouse_release, mouse_release]
-        # goes through each bind and binds it to canvas if it's a key based
-        # object and binds it to the graphical object if it's not a key based
-        # object
-        for i in range(len(types)):
-            if "Key" in types[i]:
-                self._window._canvas.bind(types[i], funcs[i])
-            else:
-                self._window._canvas.tag_bind(self._tag, types[i], funcs[i])
+
+    # This controls the Tkinter integration of event handlers
+    # When a graphic is added to the window, this binds the events
+    def _bind_handlers(self):
+        bindings = {
+            "<Enter>"              : self._mouse_enter,
+            "<Leave>"              : self._mouse_leave,
+            "<Motion>"             : self._mouse_move,
+            "<Button-1>"           : self._mouse_press,
+            "<Button-2>"           : self._mouse_press,
+            "<Button-3>"           : self._mouse_press,
+            "<ButtonRelease-1>"    : self._mouse_release,
+            "<ButtonRelease-2>"    : self._mouse_release,
+            "<ButtonRelease-3>"    : self._mouse_release,
+        }
+
+        for binding in bindings:
+            # binding is the Tkinter binding string
+            # bindings[binding] is the function to be bound
+            self._window._canvas.tag_bind(self._tag,
+                                          binding,
+                                          bindings[binding])
+
+    def _key_press(self, event):
+        if self._enabled:
+            tkEvent = Event(event)
+            for handler_object in self._handlers:
+                _call_handler(handler_object.handle_key_press, tkEvent)
+
+    def _key_release(self, event):
+        if self._enabled:
+            tkEvent = Event(event)
+            for handler_object in self._handlers:
+                _call_handler(handler_object.handle_key_release, tkEvent)
+
+    def _mouse_enter(self, event):
+        if self._enabled:
+            tkEvent = Event(event)
+            for handler_object in self._handlers:
+                _call_handler(handler_object.handle_mouse_enter, tkEvent)
+            # This creates infinite recursion
+            # self._window.refresh()
+
+    def _mouse_leave(self, event):
+        if self._enabled:
+            tkEvent = Event(event)
+            for handler_object in self._handlers:
+                _call_handler(handler_object.handle_mouse_leave, tkEvent)
+            self._window.refresh()
+
+    def _mouse_move(self, event):
+        if self._enabled:
+            tkEvent = Event(event)
+            for handler_object in self._handlers:
+                _call_handler(handler_object.handle_mouse_move, tkEvent)
+            self._window.refresh()
+
+    def _mouse_press(self, event):
+        if self._enabled:
+            tkEvent = Event(event)
+            for handler_object in self._handlers:
+                _call_handler(handler_object.handle_mouse_press, tkEvent)
+            # for some reason, this breaks the event system
+            # self._window.refresh()
+
+    def _mouse_release(self, event):
+        if self._enabled:
+            tkEvent = Event(event)
+            for handler_object in self._handlers:
+                _call_handler(handler_object.handle_mouse_release, tkEvent)
+            self._window.refresh()
 
     ## Returns the center of the object.
     # @return center - tuple
@@ -735,7 +804,7 @@ class GraphicalObject:
         if self._enabled:
             self._remove()
             self._add()
-            # deal with handlers
+            self._bind_handlers()
         
     ## Removes a graphical object from the canvas.
     def _remove(self):
@@ -978,7 +1047,8 @@ class Image(GraphicalObject):
                                  center = center,
                                  pivot = center)
 
-        self._image_loc = "./" + image_loc
+        self._image_loc = image_loc
+        self._image = image.open(self._image_loc).convert('RGBA')
         self._width = width
         self._height = height
         self._degrees = 0
@@ -986,23 +1056,20 @@ class Image(GraphicalObject):
     # Adds a graphical object to the canvas.
     def _add(self):
         if not self._enabled:
-            print("adding image")
-            print(self._image_loc)
-            # get image from file
-            img = image.open(self._image_loc).convert('RGBA')
             # resize and rotate the image
-            img = img.rotate(self._degrees,
-                             expand=True).resize((self._width,
-                                                  self._height),
-                                                 image.BICUBIC)
-            # img.show()
+            img = self._image.rotate(self._degrees,
+                                     expand=True).resize((self._width,
+                                                          self._height),
+                                                         image.BICUBIC)
+
             # convert to correct format
-            self._image = itk.PhotoImage(img)
+            self._photo_image = itk.PhotoImage(img)
 
             # add to window
             self._tag = self._window._canvas.create_image(self._center[0],
                                                           self._center[1],
-                                                          image=self._image)
+                                                          image =
+                                                          self._photo_image)
             
             self._update_graphic_list()
             self._enabled = True
@@ -1419,11 +1486,12 @@ class Timer:
     # will wait
     # @param func - function - the function which will be run
     def __init__(self, window, interval, func):
-        # type checking
-        # i haven't found a good way of checking whether a func is a function
-        assert isinstance(window, Window) and isinstance(interval, int), \
-            "Make sure window is a Window, the interval is an int, and " + \
-            "the function is a function or process."
+        _check_type(window, "window", Window)
+        _check_type(interval, "interval", int)
+        _check_function(func, "func")
+
+        
+        
         self._window = window
         self._func = func
         self._interval = interval
@@ -1431,19 +1499,21 @@ class Timer:
     ## Sets the function which is going to be run.
     # @param func - function
     def set_function(self, func):
-        # i haven't found a good way of checking whether a func is a function
+        _check_function(func, "func")
+        
         self._func = func
 
     ## Sets the interval between executions of the function.
     # @param interval - int
     def set_interval(self, interval):
-        assert isinstance(interval, int), \
-            "Make sure the interval is an int."
+        _check_type(interval, "interval", int)
+
         self._interval = interval
 
     ## Starts the timer.
     def start(self):
         self._func()
+        self._window.refresh()
         self._tag = self._window._root.after(self._interval, self.start)
 
     ## Stops the timer.
@@ -1469,7 +1539,7 @@ def RunWithYieldDelay(window, func):
     # type checking
     # i haven't found a good way of checking whether a func is a function
     _check_type(window, "window", Window)
-    _check_function(func, "func")
+    _check_generator(func, "func")
 
     _RunWithYieldDelay(window, func)
 
@@ -1490,12 +1560,12 @@ def RunWithYieldDelay(window, func):
 class _RunWithYieldDelay:
     def __init__(self, window, func):
         _check_type(window, "window", Window)
-        _check_function(func, "func")
+        _check_generator(func, "func")
     
         self._func = func
         self._window = window
         self._run()
-
+            
     # Starts the run with yield delay.
     def _run(self):
         # this will keep running with yield delay until a StopIteration is
@@ -1505,9 +1575,12 @@ class _RunWithYieldDelay:
             if delay is None:
                 delay = 1000
         except StopIteration:
-            delay = 0
+            delay = -1
 
-        if delay > 0:
+        # update the window
+        self._window.refresh()
+
+        if delay >= 0:
             self._tag = self._window._root.after(delay, self._run)
         else:
             self._window._root.after_cancel(self._tag)
