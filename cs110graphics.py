@@ -247,7 +247,7 @@ class Window:
     # @param start - GraphicalObject - <b>(default: None)</b> only objects with
     # the same or equal depth to this object are refreshed.
     def refresh(self, start = None):
-        print("We need a refresh")
+        # print("We need a refresh")
         self._needs_refresh = True
 
         # done if no start object was given
@@ -267,7 +267,6 @@ class Window:
     # the depth of the objects in the window.
     def _refresh(self):
         if self._needs_refresh:
-            print("Refreshing window")
             self._graphics.sort(key=lambda g : g[0])
 
             for graphic in reversed(self._graphics):
@@ -276,6 +275,7 @@ class Window:
                     graphic[0] <= self._start_depth):
                     # refresh the graphic
                     graphic[2]._refresh()
+                # graphic[2]._refresh()
             
             self._needs_refresh = False
             self._start_depth = None
