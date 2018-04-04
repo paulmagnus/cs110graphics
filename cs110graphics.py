@@ -25,7 +25,7 @@
 # @authors Paul Magnus '18
 # @authors Ines Ayara '20
 # @authors Matthew R. Jenkins '20
-# @version 1.2
+# @version 2.0
 # @date Summer 2017
 
 from tkinter import *  # for pretty much everything graphics related

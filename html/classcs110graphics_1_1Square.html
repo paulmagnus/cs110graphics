@@ -19,6 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
       <li><a href="pages.html"><span>Related&nbsp;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Packages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -43,7 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
     </ul>
   </div>
-  <div class="navpath"><b>cs110graphics</b>.<a class="el" href="classcs110graphics_1_1Square.html">Square</a>
+  <div class="navpath"><a class="el" href="namespacecs110graphics.html">cs110graphics</a>.<a class="el" href="classcs110graphics_1_1Square.html">Square</a>
   </div>
 </div>
 <div class="contents">
@@ -68,6 +69,8 @@ Inheritance diagram for cs110graphics.Square:</div>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Square.html#ae4b847029070a73478fd7dd2eefeb58e">__init__</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Square.html#a4b650f9ef28d4fab88d36ce65e8e0cf1">set_side_length</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets the side length of the <a class="el" href="classcs110graphics_1_1Square.html" title="A square, which can be added to a Window object.">Square</a>.  <a href="#a4b650f9ef28d4fab88d36ce65e8e0cf1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a91e490828e9b9f0c3545af7fabf7a0b0">__init__</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1GraphicalObject.html#a1c84a127a5d1cae5802e326b9b024140">__init__</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a6772d56158c9fe98a33f01d47cb8aa41">get_border_color</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the border color.  <a href="#a6772d56158c9fe98a33f01d47cb8aa41"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">def&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcs110graphics_1_1Fillable.html#a6ed7a4288e84a090ec185c8bdff21d0f">get_border_width</a></td></tr>
@@ -104,6 +107,104 @@ Inheritance diagram for cs110graphics.Square:</div>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>A square, which can be added to a <a class="el" href="classcs110graphics_1_1Window.html" title="Window acts as a canvas which other objects can be put onto.">Window</a> object. </p>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a1c84a127a5d1cae5802e326b9b024140"></a><!-- doxytag: member="cs110graphics::Square::__init__" ref="a1c84a127a5d1cae5802e326b9b024140" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cs110graphics.GraphicalObject.__init__ </td>
+          <td>(</td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>window</em> = <code>None</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>center</em> = <code>(200,&nbsp;200</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>depth</em> = <code>50</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>pivot</em> = <code>None</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classcs110graphics_1_1Text.html#a022ce78a2945edbd8dfe3c4498769a62">cs110graphics.Text</a>, <a class="el" href="classcs110graphics_1_1Oval.html#a7f71ea6ad224b510456c9de76e72ff11">cs110graphics.Oval</a>, and <a class="el" href="classcs110graphics_1_1Rectangle.html#a57049aac9a7f4aa8823112290888a6a8">cs110graphics.Rectangle</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a91e490828e9b9f0c3545af7fabf7a0b0"></a><!-- doxytag: member="cs110graphics::Square::__init__" ref="a91e490828e9b9f0c3545af7fabf7a0b0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def cs110graphics.Fillable.__init__ </td>
+          <td>(</td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>window</em> = <code>None</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>center</em> = <code>(200,&nbsp;200</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>points</em> = <code>[]</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>pivot</em> = <code>(200,&nbsp;200</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&nbsp;</td>
+          <td class="paramname"> <em>depth</em> = <code>50</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ae4b847029070a73478fd7dd2eefeb58e"></a><!-- doxytag: member="cs110graphics::Square::__init__" ref="ae4b847029070a73478fd7dd2eefeb58e" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -682,7 +783,7 @@ Inheritance diagram for cs110graphics.Square:</div>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&nbsp;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&nbsp;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&nbsp;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&nbsp;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&nbsp;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -691,7 +792,7 @@ Inheritance diagram for cs110graphics.Square:</div>
 </iframe>
 </div>
 
-<hr size="1"/><address style="text-align: right;"><small>Generated on 23 Nov 2017 for Hamilton College CS110 Graphics Library by&nbsp;
+<hr size="1"/><address style="text-align: right;"><small>Generated on 4 Apr 2018 for Hamilton College CS110 Graphics Library by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.1 </small></address>
 </body>
