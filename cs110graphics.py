@@ -327,7 +327,7 @@ def StartGraphicsSystem(first_function, width=400, height=400,
 # automatically and give an instance of Event to the method called.
 class Event:
     
-    def __init__(self, event):
+    def __init__(self, event, obj):
         # converting each necessary tkinter event parameter to something easier
         # to get access to and easier to understand
         self._type = event.type
@@ -335,6 +335,7 @@ class Event:
         self._rootLocation = (event.x_root, event.y_root)
         self._keysym = event.keysym
         self._num = event.num
+        self._obj = obj         # GraphicalObject that created the event
 
     def __str__(self):
         return "Event: " + self.get_description()
@@ -410,6 +411,12 @@ class Event:
     # @return location - tuple of (int * int) - (e.g. (200, 200))
     def get_root_mouse_location(self):
         return self._rootLocation
+
+    ## Returns the GraphicalObject that created this event.
+    # For example, if this object represents a mouse event, then the returned
+    # object is the GraphicalObject currently under the mouse pointer.
+    def get_object(self):
+        return self._obj
 
 
 #-------------------------------------------------------------------------------
@@ -700,19 +707,19 @@ class GraphicalObject:
 
     def _key_press(self, event):
         if self._enabled:
-            tkEvent = Event(event)
+            tkEvent = Event(event, self)
             for handler_object in self._handlers:
                 _call_handler(handler_object.handle_key_press, tkEvent)
 
     def _key_release(self, event):
         if self._enabled:
-            tkEvent = Event(event)
+            tkEvent = Event(event, self)
             for handler_object in self._handlers:
                 _call_handler(handler_object.handle_key_release, tkEvent)
 
     def _mouse_enter(self, event):
         if self._enabled:
-            tkEvent = Event(event)
+            tkEvent = Event(event, self)
             for handler_object in self._handlers:
                 _call_handler(handler_object.handle_mouse_enter, tkEvent)
             # This creates infinite recursion since when an object is added
@@ -721,21 +728,21 @@ class GraphicalObject:
 
     def _mouse_leave(self, event):
         if self._enabled:
-            tkEvent = Event(event)
+            tkEvent = Event(event, self)
             for handler_object in self._handlers:
                 _call_handler(handler_object.handle_mouse_leave, tkEvent)
             self._window._refresh()
 
     def _mouse_move(self, event):
         if self._enabled:
-            tkEvent = Event(event)
+            tkEvent = Event(event, self)
             for handler_object in self._handlers:
                 _call_handler(handler_object.handle_mouse_move, tkEvent)
             self._window._refresh()
 
     def _mouse_press(self, event):
         if self._enabled:
-            tkEvent = Event(event)
+            tkEvent = Event(event, self)
             for handler_object in self._handlers:
                 _call_handler(handler_object.handle_mouse_press, tkEvent)
             # for some reason, this breaks the mouse release handler
@@ -743,7 +750,7 @@ class GraphicalObject:
 
     def _mouse_release(self, event):
         if self._enabled:
-            tkEvent = Event(event)
+            tkEvent = Event(event, self)
             for handler_object in self._handlers:
                 _call_handler(handler_object.handle_mouse_release, tkEvent)
             self._window._refresh()
